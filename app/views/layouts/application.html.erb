@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plot Twist</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= javascript_importmap_tags %>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    
+      height: 100vh;
+      background-color: #f3f4f6;
+      color: #333;
+    }
+    /* Navbar styling */
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+      font-size: 20px;
+    }
+    .navbar .brand {
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar (this will be on every page) -->
+  <div class="navbar">
+    <div class="brand">Plot Twist</div>
+    <div class="menu">
+      <a href="<%= root_path %>">Home</a>
+      <a href="<%= ebooks_path %>">Ebooks</a>
+      <a href="<%= communities_path %>">Community</a>
+      <a href="#">Login</a>
+    </div>
+  </div>
+
+  <!-- Page-specific content -->
+  <%= yield %>
+</body>
+</html>

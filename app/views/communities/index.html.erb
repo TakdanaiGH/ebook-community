@@ -1,0 +1,7 @@
+<!-- app/views/communities/index.html.erb -->
+<h1>Communities</h1>
+<ul>
+  <% @communities.each do |community| %>
+    <li><%= community.name %>: <%= community.description %></li>
+  <% end %>
+</ul>
