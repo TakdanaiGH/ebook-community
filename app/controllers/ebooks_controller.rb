@@ -12,7 +12,7 @@ class EbooksController < ApplicationController
   # Search action to handle requests from React
   def search
     query = params[:query] || "public domain"  # Default search query if no query is passed
-    url = "#{BASE_URL}?q=#{query}&limit=18"  # Set limit to 18 books
+    url = "#{BASE_URL}?q=#{query}&limit=24"  # Set limit to 18 books
 
     # Fetch books from Open Library API
     response = HTTParty.get(url)

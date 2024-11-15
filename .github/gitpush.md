@@ -1,3 +1,7 @@
+git remote remove origin
+git remote -v
+git remote add origin https://github.com/TakdanaiGH/ebook-community.git
+
 # Check current branches
 git branch
 
@@ -11,7 +15,7 @@ git add .
 git commit -m "Description of changes"
 
 # Push the new branch to GitHub
-git push origin my-feature-branch
+git push -u origin my-feature-branch
 
 # Switch back to the main branch
 git checkout main

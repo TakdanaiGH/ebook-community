@@ -1,15 +1,25 @@
+// app/javascript/components/EbookPage.jsx
 import React, { useState, useEffect } from 'react';
+import './BookPage.css'; // Import the CSS file
 
 const EbookPage = () => {
   const [books, setBooks] = useState([]);
   const [query, setQuery] = useState('public domain'); // Default query
+  const [page, setPage] = useState(1); // Add page state
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  // Mock data for dropdown options
+  const [selectedLanguage, setSelectedLanguage] = useState('');
+  const [selectedSubject, setSelectedSubject] = useState('');
+  const [selectedYearRange, setSelectedYearRange] = useState('');
+  const languages = ['English', 'Spanish', 'French', 'German'];
+  const subjects = ['Math', 'Science', 'History', 'Literature'];
+  const yearRanges = ['2000-2010', '2011-2020', '2021-2024'];
 
-  // Fetch books whenever query changes
+  // Fetch books whenever query or page changes
   useEffect(() => {
     fetchBooks();
-  }, [query]);
+  }, [query, page]);
 
   // Fetch books from the server
   const fetchBooks = async () => {
@@ -17,7 +27,7 @@ const EbookPage = () => {
     setError('');
     
     try {
-      const response = await fetch(`/ebooks/search?query=${query}`);
+      const response = await fetch(`/ebooks/search?query=${query}&page=${page}`);
       const data = await response.json();
       
       if (data.books) {
@@ -35,9 +45,17 @@ const EbookPage = () => {
     setQuery(event.target.value); // Update query when user types in the search bar
   };
 
+  const handleNextPage = () => {
+    setPage(prevPage => prevPage + 1); // Increment page
+  };
+
   return (
     <div>
-      <h1>Ebooks</h1>
+      <div className="block-container">
+        <div className="content">
+          <h3>Ebooks</h3>
+        </div>
+      </div>
 
       {/* Search bar */}
       <div className="search-container">
@@ -56,6 +74,59 @@ const EbookPage = () => {
 
       {/* Error message */}
       {error && <p>{error}</p>}
+      <div className="side-bar">
+      <div>
+        <b>10,000</b> Results
+      </div>
+
+      <div className="filter-section">
+        <label htmlFor="language">Language:</label>
+        <select
+          id="language"
+          value={selectedLanguage}
+          onChange={(e) => setSelectedLanguage(e.target.value)}
+        >
+          <option value="">Select Language</option>
+          {languages.map((language, index) => (
+            <option key={index} value={language}>
+              {language}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="filter-section">
+        <label htmlFor="subject">Subject:</label>
+        <select
+          id="subject"
+          value={selectedSubject}
+          onChange={(e) => setSelectedSubject(e.target.value)}
+        >
+          <option value="">Select Subject</option>
+          {subjects.map((subject, index) => (
+            <option key={index} value={subject}>
+              {subject}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="filter-section">
+        <label htmlFor="yearRange">Year Range:</label>
+        <select
+          id="yearRange"
+          value={selectedYearRange}
+          onChange={(e) => setSelectedYearRange(e.target.value)}
+        >
+          <option value="">Select Year Range</option>
+          {yearRanges.map((range, index) => (
+            <option key={index} value={range}>
+              {range}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
 
       {/* Book grid */}
       <div className="book-grid">
@@ -75,92 +146,10 @@ const EbookPage = () => {
         ))}
       </div>
 
-      {/* Styles */}
-      <style>
-        {`
-          /* Search bar styling */
-          .search-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-          }
-          .search-bar {
-            width: 300px;
-            padding: 10px;
-            font-size: 1em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-          }
-          .search-button {
-            padding: 10px 15px;
-            font-size: 1em;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-left: 10px;
-            border-radius: 4px;
-          }
-
-          /* Book grid styling */
-          .book-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr); /* Forces 6 columns per row */
-            gap: 20px; /* Adds spacing between grid items */
-            margin: 20px;
-          }
-
-          /* Styling for each book item */
-          .book-item {
-            text-align: center;
-            display: block; /* Block-level element to fill grid space */
-          }
-
-          /* Book cover image styling */
-          .book-cover {
-            height: 200px; /* Fixed height */
-            width: 150px;  /* Fixed width */
-            object-fit: cover; /* Ensures the image fills the box without distortion */
-            margin-bottom: 10px;
-            border-radius: 4px;
-          }
-
-          /* Button styling */
-          .add-to-shelf {
-            padding: 5px 10px;
-            background-color: #a0522d;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9em;
-            border-radius: 4px;
-            text-decoration: none;
-          }
-
-          .add-to-shelf:hover {
-            background-color: #8b4513;
-          }
-
-          /* Responsive design for smaller screens */
-          @media (max-width: 1200px) {
-            .book-grid {
-              grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
-            }
-          }
-
-          @media (max-width: 900px) {
-            .book-grid {
-              grid-template-columns: repeat(3, 1fr); /* 3 columns on smaller screens */
-            }
-          }
-
-          @media (max-width: 600px) {
-            .book-grid {
-              grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile screens */
-            }
-          }
-        `}
-      </style>
+      {/* Next Page Button */}
+      <div className="pagination">
+        <button onClick={handleNextPage} className="next-page-button">Next Page</button>
+      </div>
     </div>
   );
 };

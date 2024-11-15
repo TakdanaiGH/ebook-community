@@ -1,0 +1,29 @@
+/* app/javascript/components/HomePage.css */
+
+.home-page {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* align-items: center; */
+    flex-direction: column; 
+    height: 40vh; /* Full viewport height */
+    background-color: #f3f4f6; /* Optional background color */
+  }
+  
+  .center-block {
+    width: 1200px; /* Adjust width as needed */
+    height: 250px;
+    padding: 20px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .block-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
