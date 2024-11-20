@@ -1,0 +1,109 @@
+/* General Styles for Profile Edit Page */
+.profile-form {
+    max-width: 1000px; /* Increased width for the form box */
+    width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  
+  .profile-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Profile Info Container - Flexbox Layout */
+  .profile-info-container {
+    display: flex;
+    gap: 30px; /* Increased space between the left and right sections */
+  }
+  
+  /* Left side: Profile Picture */
+  .profile-left {
+    width: 30%; /* Keep the profile picture section smaller */
+    text-align: center;
+  }
+  
+  .profile-picture-container {
+    margin-bottom: 10px;
+  }
+  
+  .profile-picture {
+    width: 150px; /* Make the profile picture larger */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .file-input {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Right side: Information */
+  .profile-right {
+    width: 70%; /* Keep the information section larger */
+  }
+  
+  /* Form Row - 2 items in each row */
+  .form-row {
+    display: flex;
+    gap: 30px; /* Increased gap between form fields in the same row */
+    margin-bottom: 20px; /* Ensure there is space between the rows */
+  }
+  
+  .half-width {
+    width: 48%; /* Keeps the fields at 48% of the width, with space between them */
+  }
+  
+  /* Form Group Styles */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .input-field,
+  .text-area {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+  
+  .text-area {
+    height: 120px;
+    resize: vertical;
+  }
+  
+  .input-field:focus,
+  .text-area:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  

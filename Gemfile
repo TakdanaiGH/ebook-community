@@ -21,6 +21,7 @@ gem "jbuilder"
 gem 'react-rails'
 gem 'httparty'
 gem 'rack-cors'
+gem 'devise'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -57,6 +58,8 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'simplecov', require: false
+  gem 'webmock'
 end
 
 gem "webpacker", "~> 5.4"

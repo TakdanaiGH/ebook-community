@@ -5,55 +5,46 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-  <%= javascript_importmap_tags %>
+  <!-- Include CSS specific to this layout -->
+  <%= stylesheet_link_tag 'layout', media: 'all' %>
+  
+  <!-- Include global application CSS -->
+  <%= stylesheet_link_tag 'application', media: 'all' %>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    
-      height: 100vh;
-      background-color: #f3f4f6;
-      color: #333;
-    }
-    /* Navbar styling */
-    .navbar {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      background-color: #333;
-      color: #fff;
-      font-size: 16px;
-    }
-    .navbar .brand {
-      font-size: 1.7em;
-      font-weight: bold;
-      margin-left: 100px;
-    }
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 0.9em;
-    }
-  </style>
+  <%= javascript_importmap_tags %>
 </head>
 <body>
-  <!-- Navbar (this will be on every page) -->
+  <!-- Navbar -->
   <div class="navbar">
-    <div class="brand">Plot Twist</div>
+    <!-- Brand Logo and Name -->
+    <a href="<%= root_path %>" class="brand">
+      <!-- Circle Logo -->
+      <img src="/images/pt_commuity.png" class="logo">
+      Plot Twist
+    </a>
     <div class="menu">
       <a href="<%= root_path %>">Home</a>
       <a href="<%= ebooks_path %>">Ebooks</a>
       <a href="<%= communities_path %>">Community</a>
-      <a href="#">Login</a>
+
+      <% if user_signed_in? %>
+        <!-- Display profile picture and name when logged in -->
+        <div class="profile">
+          <a href="<%= edit_user_registration_path %>">
+            <% if current_user.profile_picture.present? %>
+              <img src="<%= url_for(current_user.profile_picture) %>" alt="Profile Picture" class="profile-pic" />
+            <% else %>
+              <img src="images/moodeng.png" alt="Profile Picture" class="profile-pic" />
+            <% end %>
+            <span><%= current_user.name || "Profile" %></span>
+          </a>
+          <!-- Logout Button -->
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "logout-btn", data: { turbo: false } %>
+        </div>
+      <% else %>
+        <!-- Display Login button when not logged in -->
+        <a href="<%= new_user_session_path %>" class="login-btn">Login</a>
+      <% end %>
     </div>
   </div>
 

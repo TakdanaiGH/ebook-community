@@ -1,0 +1,95 @@
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+
+<!-- Include CSS specific to this layout -->
+<%= stylesheet_link_tag 'edit_profile', media: 'all' %>
+
+<!-- Include global application CSS -->
+<%= stylesheet_link_tag 'application', media: 'all' %>
+
+  <%= javascript_importmap_tags %>
+<%= form_for(current_user, url: user_registration_path, html: { multipart: true, class: "profile-form" }) do |f| %>
+  <div class="profile-box">
+    <!-- Profile and Information Section -->
+    <div class="profile-info-container">
+      <!-- Left side: Profile Picture -->
+      <div class="profile-left">
+        <%= f.label :profile_picture, "Profile Picture" %>
+        <div class="profile-picture-container">
+          <% if current_user.profile_picture.present? %>
+            <img src="<%= url_for(current_user.profile_picture) %>" alt="Profile Picture" class="profile-picture" />
+          <% else %>
+            <img src="images/moodeng.png" alt="Profile Picture" class="profile-pic" />
+          <% end %>
+        </div>
+        <%= f.file_field :profile_picture, class: "file-input" %>
+      </div>
+
+      <!-- Right side: Information -->
+      <div class="profile-right">
+        <!-- Name Field -->
+        <div class="form-group">
+          <%= f.label :name, "Name" %>
+          <%= f.text_field :name, placeholder: "Your Name", class: "input-field" %>
+        </div>
+
+        <!-- Age and Occupation (2 items per row) -->
+        <div class="form-row">
+          <div class="form-group half-width">
+            <%= f.label :age, "Age" %>
+            <%= f.number_field :age, class: "input-field" %>
+          </div>
+          <div class="form-group half-width">
+            <%= f.label :occupation, "Occupation" %>
+            <%= f.text_field :occupation, class: "input-field" %>
+          </div>
+        </div>
+
+        <!-- Housing Situation and Income (2 items per row) -->
+        <div class="form-row">
+          <div class="form-group half-width">
+            <%= f.label :housing_situation, "Housing Situation" %>
+            <%= f.text_field :housing_situation, class: "input-field" %>
+          </div>
+          <div class="form-group half-width">
+            <%= f.label :income, "Income" %>
+            <%= f.text_field :income, class: "input-field" %>
+          </div>
+        </div>
+
+        <!-- Goals Text Field -->
+        <div class="form-group">
+          <%= f.label :goals_text, "Short-Term and Long-Term Goals" %>
+          <%= f.text_area :goals_text, class: "text-area" %>
+        </div>
+
+        <!-- Questions Text Field -->
+        <div class="form-group">
+          <%= f.label :questions_text, "Immediate Questions" %>
+          <%= f.text_area :questions_text, class: "text-area" %>
+        </div>
+
+        <!-- Computer Equipment Field -->
+        <div class="form-group">
+          <%= f.label :computer_equipment, "Computer Equipment" %>
+          <%= f.text_area :computer_equipment, class: "text-area" %>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-actions">
+          <%= f.submit "Save Profile", class: "submit-btn" %>
+        </div>
+      </div>
+      <% if @user.errors.any? %>
+      <div class="error-messages">
+        <h2>There were some errors:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    </div>
+  </div>
+<% end %>

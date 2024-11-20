@@ -1,21 +1,36 @@
 Rails.application.routes.draw do
-  get "communities/index"
-  get "ebooks/index"
-  get "home/index"
+  # Devise routes for user authentication
+  devise_for :users, controllers: {
+  sessions: 'users/sessions',
+  registrations: 'users/registrations'
+}
+
+  # Map login and register to Devise controllers explicitly
+  devise_scope :user do
+    get '/login', to: 'devise/sessions#new', as: :login
+    get '/register', to: 'devise/registrations#new', as: :register
+  end
+
+  # Community and Ebooks specific routes
+  get 'communities/index'
+  get 'ebooks/index'
   get 'ebooks/search', to: 'ebooks#search'
+  get 'profile', to: 'users#show', as: 'user_profile'
+  
+
   resources :ebooks, only: [:index]
   resources :communities, only: [:index]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root "home#index"
-  
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-  
-  # Render dynamic PWA files from app/views/pwa/*
-  get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Home page
+  get 'home/index'
+
+  # Application root path
+  root 'home#index'
+
+  # Health check route
+  get 'up' => 'rails/health#show', as: :rails_health_check
+
+  # PWA service worker and manifest
+  get 'service-worker' => 'rails/pwa#service_worker', as: :pwa_service_worker
+  get 'manifest' => 'rails/pwa#manifest', as: :pwa_manifest
 end

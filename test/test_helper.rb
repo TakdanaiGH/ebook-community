@@ -2,6 +2,10 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 
+require 'simplecov'
+SimpleCov.start 'rails'
+puts "SimpleCov started. Test coverage will be generated."
+
 module ActiveSupport
   class TestCase
     # Run tests in parallel with specified workers

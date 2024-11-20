@@ -1,9 +1,7 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+community_one:
+  name: "Tech Enthusiasts"
+  description: "A community for technology lovers."
 
-one:
-  name: MyString
-  description: MyText
-
-two:
-  name: MyString
-  description: MyText
+community_two:
+  name: "Book Worms"
+  description: "A community for book enthusiasts."

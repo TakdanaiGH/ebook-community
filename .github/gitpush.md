@@ -2,6 +2,9 @@ git remote remove origin
 git remote -v
 git remote add origin https://github.com/TakdanaiGH/ebook-community.git
 
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
+
 # Check current branches
 git branch
 
@@ -12,10 +15,12 @@ git checkout -b {yourname}-branch
 git add .
 
 # Commit changes
-git commit -m "Description of changes"
+git commit -m "update home page and ebook"
 
 # Push the new branch to GitHub
-git push -u origin my-feature-branch
+git push -u origin {yourname}-branch
+git pull origin main
+git pull origin main --no-rebase
 
 # Switch back to the main branch
 git checkout main

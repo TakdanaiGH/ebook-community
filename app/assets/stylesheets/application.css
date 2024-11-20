@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+ 
+ /* @import "sessions"; This assumes sessions.scss is in the same directory */
+ /* @import "register"; */

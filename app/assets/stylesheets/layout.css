@@ -1,0 +1,96 @@
+/* General body styling for the layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f4f6;
+    color: #333;
+}
+
+/* Navbar styling */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Branding with Logo and Name */
+.navbar .brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    display: flex;
+    align-items: center; /* Center logo and text vertically */
+    margin-left: 50px;
+}
+
+.navbar .logo {
+    width: 40px; /* Size of the logo */
+    height: 40px; /* Height of the logo */
+    border-radius: 50%; /* Makes the image circular */
+    margin-right: 10px; /* Space between logo and brand name */
+    vertical-align: middle; /* Ensures logo aligns with text vertically */
+}
+
+/* Menu items styling */
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9em;
+}
+
+.navbar .menu {
+    margin-right: 20px;
+}
+
+/* Profile styling */
+.navbar .profile img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.profile {
+    display: flex;
+    align-items: center; /* Vertically center image and text */
+    gap: 10px; /* Add space between image and name */
+}
+
+.profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block; /* Ensure it stays inline */
+    vertical-align: middle;
+}
+
+.profile span {
+    display: inline-block;
+    font-size: 1rem; /* Adjust text size to match */
+    vertical-align: middle;
+}
+
+/* Login button styling */
+.login-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 15px; /* Space between links */
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}

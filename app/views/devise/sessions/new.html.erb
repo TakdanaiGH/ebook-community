@@ -1,0 +1,54 @@
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+
+<!-- Include CSS specific to this layout -->
+<%= stylesheet_link_tag 'sessions', media: 'all' %>
+
+<!-- Include global application CSS -->
+<%= stylesheet_link_tag 'application', media: 'all' %>
+
+<%= javascript_importmap_tags %>
+
+<div class="login-page">
+  <div class="welcome-section">
+    <h1>Welcome Back!</h1>
+    <%= image_tag "login-cover.jpeg", class: "login-image", alt: "Welcome" %>
+    <p>Please log in to access your account.</p>
+  </div>
+  
+  <div class="form-container">
+    <h1>Log in</h1>
+    
+    <% if flash[:alert] %>
+      <p class="error"><%= flash[:alert] %></p>
+    <% elsif flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f| %>
+      <!-- Email Field -->
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+      </div>
+      
+      <!-- Password Field -->
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "current-password", required: true %>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="actions">
+        <%= f.submit "Log in", class: "btn" %>
+      </div>
+    <% end %>
+
+    <!-- Forgot Password & Sign Up Links -->
+    <div class="links">
+      <a href="/users/password/new">Forgot your password?</a>
+      <br />
+      <a href="/users/sign_up">Don't have an account? Sign up</a>
+    </div>
+  </div>
+</div>
