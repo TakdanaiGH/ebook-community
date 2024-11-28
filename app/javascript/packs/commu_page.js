@@ -1,11 +1,8 @@
-// app/javascript/packs/books_page.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import CommuniyPage from '../components/CommuniyPage';
+import React from "react";
+import ReactDOM from "react-dom";
+import CommunityPage from "../components/CommunityPage";
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <CommuniyPage />,
-    document.getElementById('react-community')
-  );
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("react-community");
+  ReactDOM.render(<CommunityPage />, container);
 });

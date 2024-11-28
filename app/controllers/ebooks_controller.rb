@@ -4,52 +4,33 @@ class EbooksController < ApplicationController
 
   BASE_URL = "https://openlibrary.org/search.json"
 
-  # GET /ebooks or /ebooks/search?query=<search_query>
-  def index
-    # The React component will handle the display, so no need to fetch books here.
-  end
-
-  # Search action to handle requests from React
+  # GET /ebooks/search?query=<search_query>
   def search
     query = params[:query] || "public domain"  # Default search query if no query is passed
-    limit = 24  # Number of books to fetch with covers
-    books_with_cover = []  # Array to accumulate books with covers
-    page = 1  # Start from the first page
-    
-    # Loop to keep fetching more pages until we have 24 books with covers
-    while books_with_cover.length < limit
-      url = "#{BASE_URL}?q=#{query}&limit=50&page=#{page}"  # Request 50 books per page to increase the chance of getting books with covers
+    year_range = params[:year_range]            # Year range filter (start-end)
+    offset = params[:offset].to_i || 0          # Pagination offset (start from 0 by default)
+    limit = 24                                  # Number of books to fetch
 
-      # Fetch books from Open Library API
-      response = fetch_books(url)
+    url = "#{BASE_URL}?q=#{query}&limit=#{limit}&offset=#{offset}" # Fetch 24 books, use offset for pagination
+    url += "&year=#{year_range}" if year_range.present?
 
-      if response[:success]
-        books = response[:data]["docs"]  # Get books data
+    response = fetch_books(url)
 
-        # Filter books to include only those with a cover
-        books_with_cover += books.select { |book| book['cover_i'].present? }
+    if response[:success]
+      books = response[:data]["docs"]  # Get books data
 
-        # If we have enough books, stop fetching
-        break if books_with_cover.length >= limit
-      else
-        # If the request fails, return an error message
-        render json: { books: [], error: response[:error] }, status: :unprocessable_entity
-        return
-      end
+      # Filter books to include only those with a cover
+      books_with_cover = books.select { |book| book['cover_i'].present? }
 
-      page += 1  # Move to the next page
+      # Return the books as JSON to React
+      render json: { books: books_with_cover }
+    else
+      render json: { books: [], error: response[:error] }, status: :unprocessable_entity
     end
-
-    # Ensure we return exactly 24 books
-    books_with_cover = books_with_cover.first(limit)
-
-    # Return the books as JSON to React
-    render json: { books: books_with_cover }
   end
 
   private
 
-  # Encapsulate the HTTP request logic in a separate method for easier mocking
   def fetch_books(url)
     response = HTTParty.get(url)
     if response.success?

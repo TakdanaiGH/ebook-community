@@ -1,0 +1,29 @@
+<!-- app/views/chat_page/show.html.erb -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Chat</title>
+  <%= csrf_meta_tags %> <!-- This is important for CSRF protection -->
+  <%= csp_meta_tag %>
+</head>
+<script>
+  window.currentUserId = <%= current_user.id %>;
+  window.currentUserName = "<%= j current_user.name %>"; // Escape to handle special characters
+</script>
+
+<body>
+  <!-- React will be rendered here -->
+  <div id="chat-page-container"
+     data-group-id="<%= @group.id %>"
+     data-group-name="<%= @group.name.gsub('"', '&quot;') %>"
+     data-group-image-url="<%= @group.image_url %>" <!-- Add this line -->
+     data-messages="<%= @messages.to_json.html_safe %>">
+</div>
+
+
+  <%= javascript_pack_tag 'chat_page' %> <!-- Your React app JS pack -->
+</body>
+</html>
