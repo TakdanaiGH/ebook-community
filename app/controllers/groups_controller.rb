@@ -6,8 +6,9 @@ class GroupsController < ApplicationController
 
     render json: {
       id: @group.id,
-      name: @group.name,  # Ensure group name is being included
-      image_url: @group.image.attached? ? url_for(@group.image) : nil # Return image URL if attached, otherwise nil
+      name: @group.name,
+      image_url: @group.image.attached? ? url_for(@group.image) : nil, # Return image URL if attached, otherwise nil
+      member_count: @group.member_count # Use the member_count method
     }
   end
 
@@ -21,7 +22,7 @@ class GroupsController < ApplicationController
     # Render the available groups (those not joined by the current user)
     render json: available_groups.as_json(
       only: [:id, :name, :created_at, :updated_at],
-      methods: [:image_url] # Ensure image URL is included for each group
+      methods: [:image_url, :member_count] # Ensure image URL and member count are included for each group
     )
   end
 
@@ -49,7 +50,8 @@ class GroupsController < ApplicationController
         id: @group.id, 
         name: @group.name, 
         image_url: @group.image.attached? ? url_for(@group.image) : nil,  # Return image URL if attached
-        messages: @messages 
+        messages: @messages,
+        member_count: @group.member_count # Add member count to the response
       }, status: :created
     else
       render json: @group.errors, status: :unprocessable_entity
@@ -63,10 +65,10 @@ class GroupsController < ApplicationController
     # Fetch the groups the current user has joined through group memberships
     groups = user.groups
 
-    # Render the groups in JSON format, including necessary attributes
+    # Render the groups in JSON format, including necessary attributes and member count
     render json: groups.as_json(
       only: [:id, :name, :created_at, :updated_at],
-      methods: [:image_url] # Include image URL for each group
+      methods: [:image_url, :member_count] # Include image URL and member count for each group
     )
   end
 
@@ -88,11 +90,12 @@ class GroupsController < ApplicationController
     membership = GroupMembership.new(user: current_user, group: group)
 
     if membership.save
-      # Return the full group data after the user joins
+      # Return the full group data after the user joins, including member count
       render json: {
         id: group.id,
         name: group.name,
-        image_url: group.image.attached? ? url_for(group.image) : nil # Return image URL if attached
+        image_url: group.image.attached? ? url_for(group.image) : nil,
+        member_count: group.member_count # Include member count after joining
       }, status: :ok
     else
       # Log error details
@@ -106,6 +109,13 @@ class GroupsController < ApplicationController
     # Logic to remove the user from the group
     current_user.groups.delete(@group)
     redirect_to groups_path, notice: 'You have left the group.'
+  end
+
+  # In GroupsController
+  def show_members
+    @group = Group.find(params[:group_id])
+    @members = @group.users # Assuming `users` is the association for members of the group
+    render json: @members.as_json(methods: [:profile_picture_url], only: [:id, :name])
   end
 
   private

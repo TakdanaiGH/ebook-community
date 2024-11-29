@@ -389,6 +389,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   mini_magick
+  minitest
   puma (>= 5.0)
   rack-cors
   rails (~> 7.2.2)

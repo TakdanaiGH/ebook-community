@@ -8,7 +8,11 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to profile_path, notice: "Profile updated successfully."
+      # Respond to JS format for dynamic updates (profile picture)
+      respond_to do |format|
+        format.html { redirect_to profile_path, notice: "Profile updated successfully." }
+        format.js   # This allows updating the profile picture without a page refresh
+      end
     else
       render :edit
     end
@@ -22,14 +26,15 @@ class UsersController < ApplicationController
       :goals_text, :questions_text, :computer_equipment, :profile_picture
     )
   end
+
+  # Example helper method for rendering user details
   def current
     render json: { id: current_user.id, name: current_user.name }
   end
-  
-  def joined_groups
-    # Fetch groups that the current user has joined
-    @joined_groups = current_user.groups
 
+  # Fetch groups that the current user has joined (optional feature)
+  def joined_groups
+    @joined_groups = current_user.groups
     render json: @joined_groups, status: :ok
   end
 end

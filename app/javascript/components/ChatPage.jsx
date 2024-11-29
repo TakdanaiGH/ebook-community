@@ -4,8 +4,10 @@ import './ChatPage.css';
 const ChatPage = ({ groupId, groupName, groupImageUrl, groupColor, currentUserId, currentUserName }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  const [groupMembers, setGroupMembers] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-
+  // Fetch messages for the group
   useEffect(() => {
     const fetchMessages = async () => {
       try {
@@ -22,6 +24,25 @@ const ChatPage = ({ groupId, groupName, groupImageUrl, groupColor, currentUserId
     };
 
     fetchMessages();
+  }, [groupId]);
+
+  // Fetch group members when the component mounts
+  useEffect(() => {
+    const fetchGroupMembers = async () => {
+      try {
+        const response = await fetch(`/groups/${groupId}/members`);
+        if (response.ok) {
+          const membersData = await response.json();
+          setGroupMembers(membersData);
+        } else {
+          console.error('Error fetching group members:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Failed to fetch group members:', error);
+      }
+    };
+
+    fetchGroupMembers();
   }, [groupId]);
 
   useEffect(() => {
@@ -84,10 +105,22 @@ const ChatPage = ({ groupId, groupName, groupImageUrl, groupColor, currentUserId
     }
   };
 
+  // Toggle modal visibility
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  // Close modal when clicking the background (overlay)
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains('members-modal-overlay')) {
+      setIsModalOpen(false);
+    }
+  };
+  
   return (
     <div className="chat-page" style={{ borderTopColor: groupColor }}>
       {/* Header with circular group image */}
-      <div className="chat-header" style={{ backgroundColor: groupColor }}>
+      <div className="chat-header" style={{ backgroundColor: groupColor }} onClick={toggleModal}>
         <div className="group-avatar">
           {groupImageUrl ? (
             <img src={groupImageUrl} alt={groupName} className="group-avatar-img" />
@@ -100,6 +133,40 @@ const ChatPage = ({ groupId, groupName, groupImageUrl, groupColor, currentUserId
         <h1 className="group-name">{groupName}</h1>
       </div>
 
+      {/* Group Members Modal */}
+      {isModalOpen && (
+        <div className="members-modal-overlay" onClick={handleOverlayClick}>
+          <div className="members-modal">
+            <div className="modal-content">
+              <h2>{groupName} Members</h2>
+              <div className="members-list">
+                {groupMembers.length > 0 ? (
+                  groupMembers.map((member) => (
+                    <div key={member.id} className="member-item">
+                      {member.profile_picture_url ? (
+                        <img
+                          src={member.profile_picture_url}
+                          alt={member.name}
+                          className="profile-pic"
+                        />
+                      ) : (
+                        <div
+                          className="profile-pic"
+                          style={{ backgroundColor: '#ccc' }} // Default background color
+                        />
+                      )}
+                      <strong>{member.name}</strong>
+                    </div>
+                  ))
+                ) : (
+                  <p>No members found</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="messages">
         {messages.length > 0 ? (
           messages.map((msg) => (
@@ -111,11 +178,18 @@ const ChatPage = ({ groupId, groupName, groupImageUrl, groupColor, currentUserId
             >
               {msg.user_id !== currentUserId && (
                 <div className="message-meta">
-                  <img
-                    src={`/profile_pictures/${msg.user_id}.jpg`}
-                    alt={`${msg.name}'s profile`}
-                    className="profile-pic"
-                  />
+                  {msg.profile_picture_url.startsWith("#") ? (
+                    <div
+                      className="profile-pic"
+                      style={{ backgroundColor: msg.profile_picture_url }}
+                    />
+                  ) : (
+                    <img
+                      src={msg.profile_picture_url}
+                      alt={`${msg.name}'s profile`}
+                      className="profile-pic"
+                    />
+                  )}
                   <strong>{msg.name}</strong>
                 </div>
               )}

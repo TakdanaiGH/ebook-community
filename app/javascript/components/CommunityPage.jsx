@@ -84,13 +84,13 @@ const CommunityPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+  
     const formData = new FormData();
     formData.append("group[name]", newGroup.name);
     if (newGroup.image) {
       formData.append("group[image]", newGroup.image); // Send image file as part of the form data
     }
-
+  
     try {
       const response = await fetch("/groups", {
         method: "POST",
@@ -99,9 +99,15 @@ const CommunityPage = () => {
           "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content,
         },
       });
-
+  
+      // Check if the response is unauthorized (401)
+      if (response.status === 401) {
+        alert("You must be logged in to create a group.");
+        return;
+      }
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         // Add the new group with the image URL to the groups list
         setGroups((prevGroups) => [
@@ -124,6 +130,7 @@ const CommunityPage = () => {
       setLoading(false);
     }
   };
+  
 
   const navigateToChat = (groupId) => {
     // Redirect to the chat page for the selected group
@@ -178,36 +185,37 @@ const CommunityPage = () => {
         <h2 className="sidebar-header">My Groups</h2>
 
         {joinedGroups.length > 0 ? (
-          <div className="joined-group-list">
-            {joinedGroups.map((group) => (
+        <div className="joined-group-list">
+          {joinedGroups.map((group) => (
+            <div
+              key={group.id}
+              className="group-item"
+              onClick={() => navigateToChat(group.id)}
+            >
               <div
-                key={group.id}
-                className="group-item"
-                onClick={() => navigateToChat(group.id)}
+                className="group-avatar"
+                style={{
+                  backgroundColor: group.image_url
+                    ? "transparent"
+                    : getColorForGroup(group.id.toString()),
+                }}
               >
-                <div
-                  className="group-avatar"
-                  style={{
-                    backgroundColor: group.image_url
-                      ? "transparent"
-                      : getColorForGroup(group.id.toString()),
-                  }}
-                >
-                  {group.image_url ? (
-                    <img src={group.image_url} alt={group.name} className="group-avatar-img" />
-                  ) : (
-                    <span className="group-avatar-text">
-                      {group.name ? group.name.charAt(0) : "?"}
-                    </span>
-                  )}
-                </div>
-                <h3>{group.name}</h3>
+                {group.image_url ? (
+                  <img src={group.image_url} alt={group.name} className="group-avatar-img" />
+                ) : (
+                  <span className="group-avatar-text">
+                    {group.name ? group.name.charAt(0) : "?"}
+                  </span>
+                )}
               </div>
-            ))}
-          </div>
-        ) : (
-          <p>No joined groups yet.</p>
-        )}
+              <h3>{group.name} ({group.member_count} members)</h3> {/* Show the member count here */}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No joined groups yet.</p>
+      )}
+
 
         <div className="joined-group add-group" onClick={handlePlusClick}>
           <span>+</span>
@@ -226,36 +234,44 @@ const CommunityPage = () => {
           className="search-bar"
         />
 
-        {filteredGroups.length > 0 ? (
-          filteredGroups.map((group) => (
-            <div key={group.id} className="group-item">
-              <div className="group-avatar-container">
-                <div
-                  className="group-avatar"
-                  style={{
-                    backgroundColor: group.image_url ? "transparent" : getColorForGroup(group.id.toString()),
-                  }}
-                >
-                  {group.image_url ? (
-                    <img src={group.image_url} alt={group.name} className="group-avatar-img" />
-                  ) : (
-                    <span className="group-avatar-text">
-                      {group.name ? group.name.charAt(0) : "?"}
-                    </span>
-                  )}
+          {filteredGroups.length > 0 ? (
+            filteredGroups.map((group) => (
+              <div key={group.id} className="group-item">
+                <div className="group-avatar-container">
+                  <div
+                    className="group-avatar"
+                    style={{
+                      backgroundColor: group.image_url
+                        ? "transparent"
+                        : getColorForGroup(group.id.toString()),
+                    }}
+                  >
+                    {group.image_url ? (
+                      <img
+                        src={group.image_url}
+                        alt={group.name}
+                        className="group-avatar-img"
+                      />
+                    ) : (
+                      <span className="group-avatar-text">
+                        {group.name ? group.name.charAt(0) : "?"}
+                      </span>
+                    )}
+                  </div>
                 </div>
+
+                <h3 className="group-name">{group.name}</h3>
+                <p>({group.member_count} members)</p> {/* Display the member count here */}
+
+                <button onClick={() => joinGroup(group.id)} className="join-group-button">
+                  Join
+                </button>
               </div>
+            ))
+          ) : (
+            <p>No groups found</p>
+          )}
 
-              <h3 className="group-name">{group.name}</h3>
-
-              <button onClick={() => joinGroup(group.id)} className="join-group-button">
-                Join
-              </button>
-            </div>
-          ))
-        ) : (
-          <p>No groups found</p>
-        )}
 
         <button className="add-group-button" onClick={handlePlusClick}>
           +

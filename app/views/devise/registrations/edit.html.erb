@@ -7,22 +7,19 @@
 <!-- Include global application CSS -->
 <%= stylesheet_link_tag 'application', media: 'all' %>
 
-  <%= javascript_importmap_tags %>
-<%= form_for(current_user, url: user_registration_path, html: { multipart: true, class: "profile-form" }) do |f| %>
+<%= javascript_importmap_tags %>
+
+<%= form_for(current_user, url: user_registration_path, html: { multipart: true, class: "profile-form", id: "profile-form" }) do |f| %>
   <div class="profile-box">
-    <!-- Profile and Information Section -->
     <div class="profile-info-container">
-      <!-- Left side: Profile Picture -->
       <div class="profile-left">
         <%= f.label :profile_picture, "Profile Picture" %>
-        <div class="profile-picture-container">
+        <div class="profile-picture-container" id="profile-picture-container">
           <% if current_user.profile_picture.present? %>
-            <img src="<%= url_for(current_user.profile_picture) %>" alt="Profile Picture" class="profile-picture" />
-          <% else %>
-            <img src="images/moodeng.png" alt="Profile Picture" class="profile-pic" />
+            <%= image_tag current_user.profile_picture, class: 'profile-picture' %>
           <% end %>
         </div>
-        <%= f.file_field :profile_picture, class: "file-input" %>
+        <%= f.file_field :profile_picture, class: "file-input", onchange: 'previewImage(event)' %>
       </div>
 
       <!-- Right side: Information -->
@@ -80,16 +77,34 @@
           <%= f.submit "Save Profile", class: "submit-btn" %>
         </div>
       </div>
-      <% if @user.errors.any? %>
+
+      <% if current_user.errors.any? %>
       <div class="error-messages">
         <h2>There were some errors:</h2>
         <ul>
-          <% @user.errors.full_messages.each do |message| %>
+          <% current_user.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </ul>
       </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
 <% end %>
+
+<script>
+  // Function to preview the uploaded image before submitting the form
+  function previewImage(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.onload = function() {
+      const imageContainer = document.getElementById('profile-picture-container');
+      imageContainer.innerHTML = `<img src="${reader.result}" alt="Profile Picture" class="profile-picture" />`;
+    };
+
+    if (file) {
+      reader.readAsDataURL(file); // Read the uploaded file as a data URL
+    }
+  }
+</script>

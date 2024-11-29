@@ -1,6 +1,305 @@
 {
   "Minitest": {
     "coverage": {
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/user.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/groups_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/chat_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/chat_page_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/communities_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/ebooks_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/groups_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/home_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/messages_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/users_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/group.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/ebook.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/home_controller.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/home.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/communities_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/community.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
@@ -19,30 +318,76 @@
         ],
         "branches": {}
       },
-      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/application_controller.rb": {
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/chat_controller.rb": {
         "lines": [
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
           null,
           null,
-          0,
-          0,
-          0
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
         ],
         "branches": {}
       },
-      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/communities_controller.rb": {
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/chat_page_controller.rb": {
         "lines": [
           0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
           0,
           0,
           0,
@@ -60,20 +405,13 @@
           null,
           null,
           0,
-          null,
-          0,
-          null,
-          null,
-          0,
           0,
           0,
           0,
           0,
           null,
-          null,
           0,
           0,
-          null,
           null,
           0,
           null,
@@ -86,23 +424,11 @@
           null,
           0,
           0,
-          null,
           0,
           0,
           0,
           null,
           0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          null,
           null,
           0,
           0,
@@ -118,9 +444,33 @@
         ],
         "branches": {}
       },
-      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/home_controller.rb": {
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/messages_controller.rb": {
         "lines": [
           0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
           0,
           0,
           0,
@@ -186,40 +536,15 @@
           0,
           0,
           0,
-          0
-        ],
-        "branches": {}
-      },
-      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/application_helper.rb": {
-        "lines": [
           0,
-          0
-        ],
-        "branches": {}
-      },
-      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/communities_helper.rb": {
-        "lines": [
           0,
-          0
-        ],
-        "branches": {}
-      },
-      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/ebooks_helper.rb": {
-        "lines": [
           0,
-          0
-        ],
-        "branches": {}
-      },
-      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/home_helper.rb": {
-        "lines": [
+          null,
           0,
-          0
-        ],
-        "branches": {}
-      },
-      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/users_helper.rb": {
-        "lines": [
+          null,
+          0,
+          null,
+          0,
           0,
           0
         ],
@@ -246,9 +571,570 @@
         ],
         "branches": {}
       },
-      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/application_record.rb": {
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/group_membership.rb": {
+        "lines": [
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/message.rb": {
         "lines": [
           0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/views/users/show.html.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      }
+    },
+    "timestamp": 1732893309
+  },
+  "Unit Tests": {
+    "coverage": {
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/user.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/groups_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/chat_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/chat_page_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/communities_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/ebooks_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/groups_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/home_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/messages_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/helpers/users_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/channels/application_cable/channel.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/channels/application_cable/connection.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/chat_controller.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/chat_page_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/communities_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/ebooks_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/home_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/messages_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/users/registrations_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/users/sessions_controller.rb": {
+        "lines": [
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/controllers/users_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/jobs/application_job.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/mailers/application_mailer.rb": {
+        "lines": [
           0,
           0,
           0,
@@ -266,6 +1152,59 @@
       "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/ebook.rb": {
         "lines": [
           0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/group.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/group_membership.rb": {
+        "lines": [
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
           0
         ],
         "branches": {}
@@ -277,12 +1216,10 @@
         ],
         "branches": {}
       },
-      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/user.rb": {
+      "/Users/buddy/Documents/Vscode/RubyEbook/ebook-community/app/models/message.rb": {
         "lines": [
           0,
           null,
-          null,
-          0,
           0,
           0,
           null,
@@ -296,15 +1233,6 @@
         "lines": [
           0,
           0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
           0,
           0,
           0,
@@ -313,12 +1241,18 @@
           0,
           0,
           0,
-          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0
         ],
         "branches": {}
       }
     },
-    "timestamp": 1731940628
+    "timestamp": 1732893302
   }
 }

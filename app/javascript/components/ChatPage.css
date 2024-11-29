@@ -163,3 +163,65 @@
   font-weight: bold;
   color: #333;
 }
+
+/* Group Members Modal */
+.members-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.members-modal {
+  background-color: white;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Ensure modal content stays on top */
+}
+
+.modal-content {
+  position: relative;
+}
+
+.close-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.members-list {
+  margin-top: 20px;
+}
+
+.member-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.member-item strong {
+  font-size: 16px;
+}

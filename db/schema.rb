@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_28_210415) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_29_175805) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -52,6 +52,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_28_210415) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "cover_i"
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer "question1"
+    t.integer "question2"
+    t.integer "question3"
+    t.integer "question4"
+    t.integer "question5"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", default: 1, null: false
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
   create_table "group_memberships", force: :cascade do |t|
@@ -123,6 +136,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_28_210415) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "group_memberships", "groups"
   add_foreign_key "group_memberships", "users"
   add_foreign_key "joined_groups", "groups"

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # Devise routes for user authentication
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
 
   # Map login and register to Devise controllers explicitly
   devise_scope :user do
+    
     get '/login', to: 'devise/sessions#new', as: :login
     get '/register', to: 'devise/registrations#new', as: :register
   end
@@ -17,15 +19,17 @@ Rails.application.routes.draw do
   get 'ebooks/search', to: 'ebooks#search'
   get 'profile', to: 'users#show', as: 'user_profile'
   get '/current_user', to: 'users#current'
-  
+  get 'groups/:group_id/members', to: 'groups#show_members', as: 'group_members'
   # Group chat route
   get 'groups/:id/chat', to: 'chat_page#show', as: 'group_chat'
   get 'joined_groups', to: 'groups#joined_groups'
   post '/join_group', to: 'groups#join_group'
 
+  resources :feedbacks, only: [:create]
   # Resources for groups, with nested messages
   resources :groups, only: [:index, :create, :show] do
     member do
+      get 'members', to: 'groups#show_members'
       post 'join'  # Join group
       post 'leave' # Leave group (combined under one member block)
     end
