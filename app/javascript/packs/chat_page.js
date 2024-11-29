@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ChatPage from '../components/ChatPage';
+import ChatPage from '../components/ChatPage.jsx';
 
 document.addEventListener('DOMContentLoaded', () => {
   const chatPageContainer = document.getElementById('chat-page-container');

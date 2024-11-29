@@ -1,7 +1,7 @@
 // app/javascript/packs/home_page.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HomePage from '../components/HomePage';
+import HomePage from '../components/HomePage.jsx';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
