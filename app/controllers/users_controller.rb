@@ -22,4 +22,14 @@ class UsersController < ApplicationController
       :goals_text, :questions_text, :computer_equipment, :profile_picture
     )
   end
+  def current
+    render json: { id: current_user.id, name: current_user.name }
+  end
+  
+  def joined_groups
+    # Fetch groups that the current user has joined
+    @joined_groups = current_user.groups
+
+    render json: @joined_groups, status: :ok
+  end
 end

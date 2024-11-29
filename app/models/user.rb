@@ -6,5 +6,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Validations
-  validates :name, presence: true  # Ensures the username is provided
+  # validates :name, presence: true  # Ensures the username is provided
+  has_many :messages
+  # has_secure_password
+  
+  has_many :group_memberships
+  has_many :groups, through: :group_memberships
 end

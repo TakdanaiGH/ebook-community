@@ -19,6 +19,10 @@ git commit -m "update home page and ebook"
 
 # Push the new branch to GitHub
 git push -u origin {yourname}-branch
+git push -u origin main
+git push origin main
+git push origin main --force
+
 git pull origin main
 git pull origin main --no-rebase
 

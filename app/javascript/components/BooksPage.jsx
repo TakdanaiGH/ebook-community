@@ -1,37 +1,32 @@
-// app/javascript/components/EbookPage.jsx
 import React, { useState, useEffect } from 'react';
 import './BookPage.css'; // Import the CSS file
 
 const EbookPage = () => {
-  const [books, setBooks] = useState([]);
-  const [query, setQuery] = useState('public domain'); // Default query
-  const [page, setPage] = useState(1); // Add page state
+  const [books, setBooks] = useState([]);  // Books to display
+  const [query, setQuery] = useState('public domain');  // Default query
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  // Mock data for dropdown options
-  const [selectedLanguage, setSelectedLanguage] = useState('');
-  const [selectedSubject, setSelectedSubject] = useState('');
-  const [selectedYearRange, setSelectedYearRange] = useState('');
-  const languages = ['English', 'Spanish', 'French', 'German'];
-  const subjects = ['Math', 'Science', 'History', 'Literature'];
-  const yearRanges = ['2000-2010', '2011-2020', '2021-2024'];
-
-  // Fetch books whenever query or page changes
+  const [offset, setOffset] = useState(0); // Track the offset for pagination
+  const [yearBegin, setYearBegin] = useState(2000);  // Default start year
+  const [yearEnd, setYearEnd] = useState(2024);    // Default end year
+  
+  // Fetch books whenever query, year range, or offset changes
   useEffect(() => {
     fetchBooks();
-  }, [query, page]);
+  }, [query, yearBegin, yearEnd, offset]);
 
   // Fetch books from the server
   const fetchBooks = async () => {
     setLoading(true);
     setError('');
-    
+
     try {
-      const response = await fetch(`/ebooks/search?query=${query}&page=${page}`);
+      // Send query, year range, and offset to the backend
+      const response = await fetch(`/ebooks/search?query=${query}&year_range=${yearBegin}-${yearEnd}&offset=${offset}`);
       const data = await response.json();
-      
+
       if (data.books) {
-        setBooks(data.books);
+        setBooks((prevBooks) => [...prevBooks, ...data.books]);  // Append new books to the existing list
       } else {
         setError('No books found or error loading books.');
       }
@@ -42,11 +37,23 @@ const EbookPage = () => {
   };
 
   const handleSearch = (event) => {
-    setQuery(event.target.value); // Update query when user types in the search bar
+    setQuery(event.target.value);  // Update query when user types in the search bar
+    setOffset(0);  // Reset offset when a new search is performed
+    setBooks([]);  // Clear previous books on new search
   };
 
-  const handleNextPage = () => {
-    setPage(prevPage => prevPage + 1); // Increment page
+  const handleLoadMore = () => {
+    setOffset((prevOffset) => prevOffset + 24);  // Increment offset for the next batch
+  };
+
+  // Handle change in start year
+  const handleYearBeginChange = (event) => {
+    setYearBegin(parseInt(event.target.value, 10));
+  };
+
+  // Handle change in end year
+  const handleYearEndChange = (event) => {
+    setYearEnd(parseInt(event.target.value, 10));
   };
 
   return (
@@ -66,7 +73,41 @@ const EbookPage = () => {
           placeholder="Search for ebooks" 
           className="search-bar"
         />
-        <button onClick={fetchBooks} className="search-button">Search</button>
+      </div>
+
+      {/* Year Range Filter */}
+      <div className="side-bar">
+        <div>
+          <b>{books.length} Results</b>
+        </div>
+
+        {/* Year Range Filter Inputs */}
+        <div className="filter-section">
+          <label htmlFor="yearRange">
+            Year Range: {yearBegin} - {yearEnd}
+          </label>
+          <div>
+            <input 
+              type="number" 
+              min="1900" 
+              max="2024" 
+              value={yearBegin} 
+              onChange={handleYearBeginChange} 
+              className="year-input"
+              placeholder="Start Year"
+            />
+            <span> - </span>
+            <input 
+              type="number" 
+              min="1900" 
+              max="2024" 
+              value={yearEnd} 
+              onChange={handleYearEndChange} 
+              className="year-input"
+              placeholder="End Year"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Loading indicator */}
@@ -74,59 +115,6 @@ const EbookPage = () => {
 
       {/* Error message */}
       {error && <p>{error}</p>}
-      <div className="side-bar">
-      <div>
-        <b>10,000</b> Results
-      </div>
-
-      <div className="filter-section">
-        <label htmlFor="language">Language:</label>
-        <select
-          id="language"
-          value={selectedLanguage}
-          onChange={(e) => setSelectedLanguage(e.target.value)}
-        >
-          <option value="">Select Language</option>
-          {languages.map((language, index) => (
-            <option key={index} value={language}>
-              {language}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="filter-section">
-        <label htmlFor="subject">Subject:</label>
-        <select
-          id="subject"
-          value={selectedSubject}
-          onChange={(e) => setSelectedSubject(e.target.value)}
-        >
-          <option value="">Select Subject</option>
-          {subjects.map((subject, index) => (
-            <option key={index} value={subject}>
-              {subject}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="filter-section">
-        <label htmlFor="yearRange">Year Range:</label>
-        <select
-          id="yearRange"
-          value={selectedYearRange}
-          onChange={(e) => setSelectedYearRange(e.target.value)}
-        >
-          <option value="">Select Year Range</option>
-          {yearRanges.map((range, index) => (
-            <option key={index} value={range}>
-              {range}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div>
 
       {/* Book grid */}
       <div className="book-grid">
@@ -146,9 +134,9 @@ const EbookPage = () => {
         ))}
       </div>
 
-      {/* Next Page Button */}
+      {/* Load More Button */}
       <div className="pagination">
-        <button onClick={handleNextPage} className="next-page-button">Next Page</button>
+        <button onClick={handleLoadMore} className="next-page-button">Load More</button>
       </div>
     </div>
   );
