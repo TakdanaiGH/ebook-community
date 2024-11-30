@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './HomePage.css';
 
-const HomePage = ({ userId }) => { // Receive userId as a prop
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false); // Add state
+const HomePage = ({ userId }) => {
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [formData, setFormData] = useState({
-    userId: userId, // Add userId to form data
+    userId,
     question1: '',
     question2: '',
     question3: '',
@@ -13,10 +13,7 @@ const HomePage = ({ userId }) => { // Receive userId as a prop
     comment: '',
   });
 
-  
-  const toggleFeedbackModal = () => {
-    setIsFeedbackOpen(!isFeedbackOpen);
-  };
+  const toggleFeedbackModal = () => setIsFeedbackOpen(!isFeedbackOpen);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,19 +31,11 @@ const HomePage = ({ userId }) => { // Receive userId as a prop
         },
         body: JSON.stringify({ feedback: formData }),
       });
-  
+
       if (response.ok) {
         alert('Thank you for your feedback!');
-        setFormData({
-          userId: userId,
-          question1: '',
-          question2: '',
-          question3: '',
-          question4: '',
-          question5: '',
-          comment: '',
-        });
-        setIsFeedbackOpen(false); // Close the modal after successful submission
+        resetForm();
+        toggleFeedbackModal();
       } else {
         alert('Error submitting feedback.');
       }
@@ -55,19 +44,30 @@ const HomePage = ({ userId }) => { // Receive userId as a prop
       alert('An error occurred.');
     }
   };
-  
 
+  const resetForm = () => {
+    setFormData({
+      userId,
+      question1: '',
+      question2: '',
+      question3: '',
+      question4: '',
+      question5: '',
+      comment: '',
+    });
+  };
 
   const renderRadioButtons = (question) => (
     <div className="radio-group">
       {[1, 2, 3, 4, 5].map((value) => (
-        <label key={value}>
+        <label key={value} className="radio-label">
           <input
             type="radio"
             name={question}
             value={value}
             checked={formData[question] === `${value}`}
             onChange={handleInputChange}
+            className="radio-input"
           />
           {value}
         </label>
@@ -76,64 +76,68 @@ const HomePage = ({ userId }) => { // Receive userId as a prop
   );
 
   return (
-    <div className="home-page">
-      <div className="block-container">
-        <div className="center-block">
-          <h1>Welcome to Plot Twist</h1>
-          <p>Your one-stop destination for ebooks and community engagement.</p>
-        </div>
-      </div>
+    <div>
+      <div className="magicbook-animation"></div>
 
-      <div className="block-container">
-        <div className="content">
-          <h3>Top Collection</h3>
-        </div>
-      </div>
+      <div className="group-1">
+        <header>
+          <h1 className="story-heading">Find your story. Share your journey</h1>
+          <h2 className="subtitle">
+            Where the love of books becomes the start of something extraordinary.
+          </h2>
+        </header>
+        <main>
+          <p className="description">
+            PlotTwist is a vibrant community where readers come together to share
+            their journeys. Discover your next great read, join clubs diving into
+            books you love, or start your own to bring others along for the
+            adventure. With free eBooks, active discussions, and a shared passion
+            for stories.
+          </p>
+        </main>
+        <footer className="group-2">
+          <a href="/users/sign_up" className="button-container">
+            <span className="button-text">GET STARTED</span>
+          </a>
+        </footer>
+        
+        {/* Feedback Button */}
+        <button className="feedback-button" onClick={toggleFeedbackModal}>
+          Feedback
+        </button>
 
-      <button className="feedback-button" onClick={toggleFeedbackModal}>
-        Feedback
-      </button>
+        {/* Feedback Modal */}
+        {isFeedbackOpen && (
+          <div className="feedback-modal">
+            <div className="modal-background" onClick={toggleFeedbackModal}></div>
+            <div className="modal-content">
+              <h2>We Value Your Feedback!</h2>
+              <form onSubmit={handleSubmit} className="feedback-form">
+                {/* Feedback Questions */}
+                {['question1', 'question2', 'question3', 'question4', 'question5'].map((question, index) => (
+                  <div key={index} className="question">
+                    <label>How would you rate {question.replace('question', '')}?</label>
+                    {renderRadioButtons(question)}
+                  </div>
+                ))}
 
-      {isFeedbackOpen && (
-        <div className="feedback-modal">
-          <div className="modal-background" onClick={toggleFeedbackModal}></div>
-          <div className="modal-content">
-            <h2>We Value Your Feedback!</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="question">
-                <label>How would you rate our website's usability? (1-5)</label>
-                {renderRadioButtons('question1')}
-              </div>
-              <div className="question">
-                <label>How satisfied are you with the content available? (1-5)</label>
-                {renderRadioButtons('question2')}
-              </div>
-              <div className="question">
-                <label>How would you rate the community engagement? (1-5)</label>
-                {renderRadioButtons('question3')}
-              </div>
-              <div className="question">
-                <label>How likely are you to recommend us? (1-5)</label>
-                {renderRadioButtons('question4')}
-              </div>
-              <div className="question">
-                <label>Overall satisfaction (1-5)</label>
-                {renderRadioButtons('question5')}
-              </div>
-              <div className="comment">
-                <label>Any additional comments?</label>
-                <textarea
-                  name="comment"
-                  value={formData.comment}
-                  onChange={handleInputChange}
-                  rows="4"
-                />
-              </div>
-              <button type="submit">Submit</button>
-            </form>
+                {/* Additional Comments */}
+                <div className="comment">
+                  <label>Any additional comments?</label>
+                  <textarea
+                    name="comment"
+                    value={formData.comment}
+                    onChange={handleInputChange}
+                    rows="4"
+                    className="textarea-field"
+                  />
+                </div>
+                <button type="submit" className="submit-button">Submit</button>
+              </form>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

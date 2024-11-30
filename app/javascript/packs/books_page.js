@@ -1,7 +1,7 @@
 // app/javascript/packs/books_page.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BooksPage from '../components/BooksPage';
+import BooksPage from '../components/BooksPage.jsx';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(

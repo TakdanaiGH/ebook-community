@@ -1,17 +1,154 @@
-.feedback-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+body {
+  background-color: black;
+  font-family: 'Bona Nova', sans-serif;
+}
+
+/* animation-library-magicbookp-022120 */
+.magicbook-animation {
+  position: absolute;
+  width: 490px;
+  height: 581px;
+  left: 0;  /* Align the element to the left of the page */
+  top: 119px;
+
+  background: url('https://cdn.edu.buncee.com/assets/abbde3e5bc174eb59c55d4b2f278ec48/animation-library-magicbookp-022120.gif?timestamp=1582320629');
+  background-size: cover;  /* Ensure the image covers the entire area */
+}
+
+/* Group 1 */
+.group-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Center the items horizontally */
+  justify-content: flex-start;  /* Align content from the top */
+  width: 910px;
+  height: auto;  /* Let the height adjust automatically */
+  margin: 0;
+  position: absolute;
+  top: 200px;
+  left: 520px;
+}
+
+/* Find your story. Share your journey */
+.story-heading {
+  font-family: 'Bona Nova', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+/* Where the love of books becomes the start of something extraordinary. */
+.subtitle {
+  font-family: 'Bona Nova', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  background: linear-gradient(90deg, #EAA7DC 0%, #E4BC7F 64.6%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
   margin-top: 20px;
 }
 
-.feedback-button:hover {
-  background-color: #0056b3;
+/* PlotTwist description */
+.description {
+  font-family: 'Bona Nova', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-top: -10px;
 }
 
+/* Group 2 (Button container) */
+.group-2 {
+  display: flex;
+  justify-content: center;  /* Center the button horizontally */
+  width: 100%;  /* Use full width of parent */
+  height: auto;  /* Let the height adjust automatically */
+  margin-top: 20px;  /* Add some margin to space out the button from the description */
+}
+
+/* Rectangle 25 - Button container */
+.button-container {
+  width: 200px;  /* Adjusted width */
+  height: 50px;  /* Adjusted height */
+  background: #DEA07A;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.button-container:hover {
+  transform: scale(1.05);
+  background-color: #CC926D;
+}
+
+/* GET STARTED button text */
+.button-text {
+  font-family: 'Bona Nova', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Feedback Button */
+.feedback-button {
+  position: absolute; /* Fixed to ensure visibility on scroll */
+  width: 250px;
+  height: 47.39px;
+  left: 600px; /* Center horizontally relative to the viewport */
+  transform: translateX(-50%); /* Adjust for true centering */
+  top: 1000px; /* Adjusted position to make it responsive */
+  border: 1px solid #DEA07A;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-family: 'Bona Nova', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 0;
+}
+
+.feedback-button:hover {
+  background-color: #CC926D; /* Add hover effect */
+}
+
+.feedback-button .button-text {
+  font-family: 'Bona Nova', sans-serif;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
+/* Feedback Modal */
 .feedback-modal {
   position: fixed;
   top: 0;
@@ -22,8 +159,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
+/* Modal background overlay */
 .modal-background {
   position: absolute;
   top: 0;
@@ -31,11 +170,13 @@
   width: 100%;
   height: 100%;
   background: transparent;
+  z-index: -1;
 }
 
+/* Modal Content */
 .modal-content {
-  position: relative;
-  background: white;
+  background-color: black;
+  border: 2px solid #DEA07A;
   padding: 20px;
   width: 90%;
   max-width: 500px;
@@ -45,37 +186,80 @@
 
 .modal-content h2 {
   margin-bottom: 20px;
+  color: white;
 }
 
+/* Submit Button inside Modal */
+.modal-content button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #DEA07A;
+  color: white;
+  cursor: pointer;
+  font-family: 'Bona Nova', sans-serif;
+}
+
+.modal-content button:hover {
+  background-color: #CC926D;
+}
+
+/* Radio Group Styling */
 .radio-group {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  color: white;
+  font-family: 'Bona Nova', sans-serif;
+  margin-bottom: 15px;
 }
 
-.radio-group label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.radio-group .radio-label {
+  margin-right: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.radio-group .radio-input {
+  margin-right: 5px;
+}
+
+/* Textarea and Input Styles */
+textarea, input[type="radio"] {
+  font-family: 'Bona Nova', sans-serif;
+  background-color: #333;
+  color: white;
+  border: 1px solid #DEA07A;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  width: 90%;
+  height: 100px;
   resize: none;
 }
 
-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
+/* Apply Font to All Text Elements */
+h1, h2, p, label {
+  font-family: 'Bona Nova', sans-serif;
   color: white;
-  cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+/* Adjusting Form Structure */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Spacing between elements */
 }
+
+.feedback-form .question {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-form .comment label {
+  margin-bottom: 10px;
+}
+
+.feedback-form .submit-button {
+  align-self: center;
+  width: 150px;
+}
+
