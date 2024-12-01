@@ -100,30 +100,30 @@ const HomePage = ({ userId }) => {
             <span className="button-text">GET STARTED</span>
           </a>
         </footer>
-        
+
         <div>
+          {/* Tagline Section */}
+          <div className="tagline">
+            Discover your tribe, share your passion, and let the books lead the way.
+          </div>
 
-      {/* Tagline Section */}
-      <div className="tagline">
-        Discover your tribe, share your passion, and let the books lead the way.
-      </div>
+          {/* Join Description Section */}
+          <div className="join-description">
+            Join PlotTwist and unlock a world of stories waiting to be discovered! Explore our collection of free eBooks, connect with like-minded readers, 
+            and dive into vibrant book clubs where discussions bring stories to life. Discover your next favorite book, set reading goals, 
+            and be part of a community that shares your passion for the written word. Start your literary adventure with us today and make every page a shared experience!
+          </div>
 
-      {/* Join Description Section */}
-      <div className="join-description">
-        Join PlotTwist and unlock a world of stories waiting to be discovered! Explore our collection of free eBooks, connect with like-minded readers, 
-        and dive into vibrant book clubs where discussions bring stories to life. Discover your next favorite book, set reading goals, 
-        and be part of a community that shares your passion for the written word. Start your literary adventure with us today and make every page a shared experience!
-      </div>
+          {/* What They Say Section */}
+          <div className="what-they-say">
+            What they say?
+          </div>
+        </div>
 
-      {/* What They Say Section */}
-      <div className="what-they-say">
-        What they say?
-      </div>
-    </div>
-    <div className="image-container">
-        <img className="rounded-image" />
-      </div>
-        
+        <div className="image-container">
+          <img className="rounded-image" alt="Community Preview" />
+        </div>
+
         {/* Feedback Button */}
         <button className="feedback-button" onClick={toggleFeedbackModal}>
           Feedback
@@ -137,12 +137,21 @@ const HomePage = ({ userId }) => {
               <h2>We Value Your Feedback!</h2>
               <form onSubmit={handleSubmit} className="feedback-form">
                 {/* Feedback Questions */}
-                {['question1', 'question2', 'question3', 'question4', 'question5'].map((question, index) => (
-                  <div key={index} className="question">
-                    <label>How would you rate {question.replace('question', '')}?</label>
-                    {renderRadioButtons(question)}
-                  </div>
-                ))}
+                {[
+                  'the ease of finding books on our site',
+                  'the variety of books available',
+                  'the functionality of book clubs',
+                  'the overall user interface',
+                  'the quality of eBook recommendations',
+                ].map((questionText, index) => {
+                  const question = `question${index + 1}`;
+                  return (
+                    <div key={index} className="question">
+                      <label>How would you rate {questionText}?</label>
+                      {renderRadioButtons(question)}
+                    </div>
+                  );
+                })}
 
                 {/* Additional Comments */}
                 <div className="comment">
