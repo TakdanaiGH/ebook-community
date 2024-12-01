@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Plot Twist</title>
+  <link rel="icon" type="image/png" href="images/Magic Book  Logo.png">
+
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -44,7 +49,7 @@
             <span class="profile-name"><%= current_user.name || "Profile" %></span>
           </a>
           <!-- Logout Button -->
-          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "logout-btn", data: { turbo: false } %>
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'logout-btn' %>
         </div>
       <% else %>
         <a href="<%= new_user_session_path %>" class="login-btn">Login</a>
@@ -54,5 +59,8 @@
 
   <!-- Page-specific content -->
   <%= yield %>
+
+
+  
 </body>
 </html>

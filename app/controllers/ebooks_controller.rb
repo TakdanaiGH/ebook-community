@@ -9,7 +9,7 @@ class EbooksController < ApplicationController
     query = params[:query] || "public domain"  # Default search query if no query is passed
     year_range = params[:year_range]            # Year range filter (start-end)
     offset = params[:offset].to_i || 0          # Pagination offset (start from 0 by default)
-    limit = 24                                  # Number of books to fetch
+    limit = 30                                  # Number of books to fetch
 
     url = "#{BASE_URL}?q=#{query}&limit=#{limit}&offset=#{offset}" # Fetch 24 books, use offset for pagination
     url += "&year=#{year_range}" if year_range.present?

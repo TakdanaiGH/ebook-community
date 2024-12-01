@@ -2,75 +2,69 @@
 .header {
     position: relative;
     width: 100%;
-    height: 100px;
+    height: 14vh; /* 10% of the viewport height */
     background-color: black;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
+    padding: 0 3vw; /* Padding in vw to make it responsive */
     box-sizing: border-box;
 }
 
 /* Logo Section */
 .header .logo-section {
-    position:absolute;
-    width: 136px;
-    height:80px;
-    left: 28px;
-    top:9px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 10vw; /* 15% of viewport width */
+    height: 10vw;
+    left: -20vw;/* Make it take full height of header */
 }
 
 .header .logo {
-    width: 136px; /* Reduce size for better proportions */
-    height: 80px;
-    left: 28px;
-    top: 9px;/* Keep aspect ratio */
-    background-size: contain;
+    left:10vw;
+    width: 100%; /* Make the logo take full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain;
 }
 
 .header .brand-name {
     position: absolute;
-    width: 191px;
-    height: 68px;
-    left: 164px;
-    top: 28px;
+    width:1vw;
+    left: 14vw; /* Adjust based on logo width */
+    top: 30%; /* Vertically center in header */
     font-family: 'Bona Nova', serif;
-    font-style: normal;
     font-weight: 700;
-    font-size: 22px; /* Reduce size for better alignment */
-    line-height: 1; /* Adjust to center vertically */
+    font-size: 1.5vw; /* Font size in vw */
+    line-height: 1;
     letter-spacing: 0.02em;
     color: #FFD4A8;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
 }
 
 /* Navigation Menu */
 .header .navbar {
     display: flex;
     position: absolute;
-    width: 537px;
-    height: 29px;
-    left: 600px;
-    top: 42px;
-    gap:100px;
-
+    width: 40%; /* 40% of viewport width */
+    height: 100%; /* Full height */
+    left: 50%; /* Center the navbar */
+    top: 30%;
+    transform: translateX(-50%); /* Center horizontally */
+    justify-content: space-evenly; /* Even spacing between links */
 }
 
 .header .navbar a {
     font-family: 'Bona Nova', serif;
-    font-style: normal;
     font-weight: 400;
-    font-size: 20px; /* Slightly smaller font for better proportions */
+    font-size: 1.5vw; /* Font size in vw */
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #FFFFFF;
-    text-decoration: none; /* Remove purple underline */
+    text-decoration: none;
     transition: color 0.3s ease;
 }
-
 
 .header .navbar a:hover {
     color: #FFD4A8;
@@ -79,10 +73,10 @@
 /* Login Button */
 .header .login-container {
     position: absolute;
-    width: 117px;
-    height: 36px;
-    left: 1271px;
-    top: 40px;
+    width: 10vw; /* 10% of viewport width */
+    height: 4.5vh; /* 4% of viewport height */
+    left: 85vw; /* Adjust position relative to the viewport */
+    top: 30%;
     background: #DEA07A;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
@@ -94,10 +88,8 @@
 
 .header .login-container a {
     font-family: 'Bona Nova', serif;
-    font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1.5vw; /* Font size in vw */
     color: #FFFFFF;
     text-decoration: none;
 }
@@ -106,40 +98,38 @@
     opacity: 0.9;
 }
 
+/* Profile Picture */
 .header .profile-pic {
-    width: 65px;
-    height: 65px;
-    display: inline-block;
+    position: absolute;
+    width: 5vw; /* Width in viewport width */
+    height: 5vw; /* Height in viewport width */
+    left: -16vw; /* Adjust position */
+    top: -1.5vw;  /* Adjust position */
     border-radius: 50%;
     object-fit: cover;
 }
 
-/* Logout Button */
-.header .logout-container {
+/* Profile Name */
+.header .profile-name {
     position: absolute;
-    width: 117px;
-    height: 36px;
-    left: 1271px;
-    top: 40px;
-    background: #DEA07A;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    left:-85%;
+    width: 1vw;
+    top: -1%;
+    font-family: 'Bona Nova', serif;
+    font-weight: 400;
+    font-size: 1.5vw; /* Font size in vw */
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
 }
 
-.header .logout-container a {
+.header .logout-btn {
+    background-color: transparent;
+    border:none;
     font-family: 'Bona Nova', serif;
-    font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1.5vw; /* Font size in vw */
     color: #FFFFFF;
     text-decoration: none;
 }
 
-.header .logout-container a:hover {
-    opacity: 0.9;
-}

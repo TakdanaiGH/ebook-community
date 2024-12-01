@@ -101,6 +101,29 @@ const HomePage = ({ userId }) => {
           </a>
         </footer>
         
+        <div>
+
+      {/* Tagline Section */}
+      <div className="tagline">
+        Discover your tribe, share your passion, and let the books lead the way.
+      </div>
+
+      {/* Join Description Section */}
+      <div className="join-description">
+        Join PlotTwist and unlock a world of stories waiting to be discovered! Explore our collection of free eBooks, connect with like-minded readers, 
+        and dive into vibrant book clubs where discussions bring stories to life. Discover your next favorite book, set reading goals, 
+        and be part of a community that shares your passion for the written word. Start your literary adventure with us today and make every page a shared experience!
+      </div>
+
+      {/* What They Say Section */}
+      <div className="what-they-say">
+        What they say?
+      </div>
+    </div>
+    <div className="image-container">
+        <img className="rounded-image" />
+      </div>
+        
         {/* Feedback Button */}
         <button className="feedback-button" onClick={toggleFeedbackModal}>
           Feedback

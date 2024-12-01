@@ -180,6 +180,10 @@ const CommunityPage = () => {
 
   return (
     <div className="community-page">
+      {/* Header */}
+      <header className="page-header">
+        <h1>Join a Thriving Community of Book Lovers</h1>
+      </header>
       {/* Sidebar - Showing joined groups */}
       <div className="sidebar">
         <h2 className="sidebar-header">My Groups</h2>
@@ -234,9 +238,10 @@ const CommunityPage = () => {
           className="search-bar"
         />
 
+          <div className="groups-list">
           {filteredGroups.length > 0 ? (
             filteredGroups.map((group) => (
-              <div key={group.id} className="group-item">
+              <div key={group.id} className="group-card">
                 <div className="group-avatar-container">
                   <div
                     className="group-avatar"
@@ -259,10 +264,10 @@ const CommunityPage = () => {
                     )}
                   </div>
                 </div>
-
+        
                 <h3 className="group-name">{group.name}</h3>
                 <p>({group.member_count} members)</p> {/* Display the member count here */}
-
+        
                 <button onClick={() => joinGroup(group.id)} className="join-group-button">
                   Join
                 </button>
@@ -271,6 +276,8 @@ const CommunityPage = () => {
           ) : (
             <p>No groups found</p>
           )}
+        </div>
+
 
 
         <button className="add-group-button" onClick={handlePlusClick}>
