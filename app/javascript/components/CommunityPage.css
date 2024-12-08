@@ -1,285 +1,333 @@
-/* Main Community Page Styles */
-  .community-page {
-      position: relative;
-      padding: 20px;
-      display: flex;
-      
-    }
-  
-  .add-group-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px; /* Move button to the bottom-right corner */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  /* Add Group Button */
-  .add-group {
-    font-size: 24px;
-    font-weight: bold;
-    background-color: #007bff;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px; /* Space between the last group and the button */
-  }
+/* Community Page Styles */
+/*.community-page {*/
+/*  color: white !important;*/
+/*}*/
 
-  .groups-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .group-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    width: 200px;
-    text-align: center;
-  }
-  
-  .group-image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  /* Modal Styles */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    width: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Image Upload Section */
-  .form-row {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .image-upload-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .camera-circle {
-    background-color: #87ceeb; /* Sky blue background */
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    overflow: hidden;
-  }
-  
-  .camera-icon {
-    font-size: 24px;
-    color: white;
-  }
-  
-  .preview-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Input Label */
-  .group-name-label {
-    flex-grow: 1;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .group-name-label input {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #007bff;
-    outline: none;
-    padding: 5px;
-    font-size: 16px;
-    margin-top: 5px;
-  }
-  
-  /* Buttons Section */
-  .modal-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .cancel-button,
-  .next-button {
-    border: none;
-    background: none;
-    font-size: 14px;
-    cursor: pointer;
-    color: #007bff;
-  }
-  
-  .next-button {
-    font-weight: bold;
-  }
-  
-  /* Sidebar Styles */
-  .sidebar {
+/* Header Styling */
+.page-header {
+  text-align: center;
+}
+
+.page-header h1 {
+  background: linear-gradient(90deg, #EAA7DC 0%, #E4BC7F 64.6%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-size: 2.5sem;
+}
+
+/* Main Community Page Styles */
+.community-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  color: white !important;
+}
+
+.add-group-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #DEA07A;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Group Card Styles */
+.group-card {
+  border: 2px solid #DEA07A; /* #DEA07A border */
+  border-radius: 10px;
+  padding: 20px;
+  width: 650px; /* Wider card */
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.group-avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.group-avatar {
+  width: 80px; /* Increased image size */
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #DEA07A; /* Border around avatar */
+}
+
+.group-name {
+  font-size: 20px; /* Increased name size */
+}
+
+.group-name, .group-member-count {
+  margin: 0;
+  font-size: 18px;
+}
+
+.join-group-button {
+  padding: 8px 15px;
+  background-color: #DEA07A;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Search Bar Styling */
+.search-bar {
+  background-color: #121212; /* Dark background */
+  border: 2px solid #DEA07A; /* #DEA07A border */
+  color: white; /* White text */
+  padding: 10px;
+  width: 40%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.search-bar::placeholder {
+  color: white; /* White placeholder text */
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image Upload Section */
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.image-upload-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-circle {
+  background-color: #DEA07A; /* Sky blue background */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.camera-icon {
+  font-size: 24px;
+  color: white;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Input Label */
+.group-name-label {
+  flex-grow: 1;
+  font-size: 14px;
+  color: #555;
+}
+
+.group-name-label input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #DEA07A;
+  outline: none;
+  padding: 5px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+/* Buttons Section */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-button,
+.next-button {
+  border: none;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #DEA07A;
+}
+
+.next-button {
+  font-weight: bold;
+}
+
+/* Sidebar Styles */
+.sidebar {
     position: fixed;
     top: 1;
-    left: 0;
-    height: 70vh; /* Full viewport height */
-    width: 300px; /* Reduced width of the sidebar */
-    background-color: #f7f7f7;
-    border-right: 1px solid #ddd;
+    left: 20px; /* Add space from the left wall */
+    height: 60vh;
+    width: 300px;
+    background-color: #121212; /* Dark background */
+    border: 2px solid #DEA07A; /* Full border with #DEA07A color */
+    border-radius: 10px; /* Add slight rounding to the corners */
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow for aesthetics */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Default, allows natural flow */
-    flex-direction: column; /* Stack the groups vertically */
-
+    color: white; /* White text */
+    
   }
 
-  .sidebar-header {
-    text-align: center; /* This centers the text */
-    font-size: 24px; /* Optional: adjust size if needed */
-    font-weight: bold;
-    padding-bottom: 20px; /* Space below the header */
-  }
 
-  /* Joined Groups List */
-  .joined-group-list {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    max-height: 80vh; /* Allow up to 80% of the viewport height */
-    overflow-y: auto; /* Scrollable when there are too many groups */
-    margin-bottom: 20px; /* Give space for the plus button */
-  }
+.sidebar-header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
 
-  .group-item {
-    display: flex; /* Use flexbox to align image and name in one line */
-    align-items: center; /* Vertically center the content */
-    margin-bottom: 15px; /* Space between groups */
-  }
+/* Joined Groups List */
+.joined-group-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 80vh;
+  overflow-y: auto;
+  margin-bottom: 20px;
   
-  .group-item img {
-    width: 40px; /* Set image size */
-    height: 40px; /* Set image size */
-    border-radius: 50%; /* Make the image circular */
-    margin-right: 10px; /* Space between image and group name */
-  }
+}
 
+.group-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  gap: 15px; /* Added space between image and group name */
+}
 
-  .group-item:hover {
-    background-color: #e9e9e9; /* Optional hover effect */
-    border-radius: 5px;
-    padding: 5px;
-  }
+.group-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
 
-  /* Optional: Customize the scrollbar */
-  .sidebar::-webkit-scrollbar {
-    width: 8px;
-  }
+.group-item:hover {
+  background-color: #DEA07A;
+  border-radius: 5px;
+  padding: 5px;
+}
 
-  .sidebar::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 4px;
-  }
+/* Optional: Customize the scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
 
-  .sidebar::-webkit-scrollbar-thumb:hover {
-    background-color: #aaa;
-  }
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
 
-  
-  .joined-group {
-    display: flex;
-    justify-content: center; /* Center the group avatar */
-    align-items: center;
-    flex-direction: column; /* Stack text below the image */
-    padding: 10px;
-    gap: 5px;
-    cursor: pointer;
-  }
-  
-  .joined-group-image {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; /* Circular avatars */
-    border: 2px solid #007bff; /* Optional border for better visibility */
-    object-fit: cover;
-  }
-  
-  .add-group {
-    font-size: 32px;
-    font-weight: bold;
-    background-color: #007bff;
-    border-radius: 50%; /* Use 50% for perfect circle */
-    color: white;
-    cursor: pointer;
-    width: 30px; /* Width and height must be the same */
-    height: 30px; /* Set the same value for height */
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px; /* Space between the last group and the button */
-    align-self: center; /* Center the button horizontally */
-  }
-  
-  .group-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: lightgray;
-  }
-  
-  .group-avatar-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .group-avatar-text {
-    font-size: 18px;
-    color: white;
-    font-weight: bold;
-  }
-  
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+/* Joined Group Styling */
+.joined-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.joined-group-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #DEA07A;
+  object-fit: cover;
+}
+
+.add-group {
+  font-size: 32px;
+  font-weight: bold;
+  background-color: #DEA07A;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  align-self: center;
+}
+
+.group-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: lightgray;
+}
+
+.group-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.group-avatar-text {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}

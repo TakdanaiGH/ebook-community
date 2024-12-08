@@ -3,11 +3,12 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
   }
   
   .form-container {
-    background: #fff;
+    background-color: black;
+    color: white;
+    border: 2px solid #DEA07A;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -20,6 +21,7 @@
   }
   
   .form-group label {
+    color: white;
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
@@ -37,18 +39,18 @@
     padding: 0.75rem;
     border: none;
     border-radius: 4px;
-    background-color: #28a745;
+    background-color: #DEA07A;
     color: #fff;
     font-size: 1rem;
     cursor: pointer;
   }
   
   .btn:hover {
-    background-color: #218838;
+    background-color: #CC926D;
   }
   
   .error {
-    color: red;
+    color: white;
     font-size: 0.9rem;
     margin-bottom: 1rem;
   }

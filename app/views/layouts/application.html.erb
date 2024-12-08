@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Plot Twist</title>
+  <link rel="icon" type="image/png" href="images/Magic Book  Logo.png">
+
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -15,34 +20,38 @@
 </head>
 <body>
   <!-- Navbar -->
-  <div class="navbar">
+  <div class="header">
     <!-- Brand Logo and Name -->
-    <a href="<%= root_path %>" class="brand">
-      <!-- Circle Logo -->
-      <img src="/images/pt_commuity.png" class="logo">
-      Plot Twist
-    </a>
-    <div class="menu">
-      <a href="<%= root_path %>">Home</a>
+    <div class="logo-section">
+      <a href="<%= root_path %>" class="brand">
+        <div class="logo">
+          <img src="/images/logo_header.png" class="logo" />
+        </div>
+        <span class="brand-name">PLOT_TWIST COMMUNITY</span>
+      </a>
+    </div>
+    <!-- Navigation Menu -->
+    <div class="navbar">
+      <a href="<%= root_path %>" class="active">Home</a>
       <a href="<%= ebooks_path %>">Ebooks</a>
       <a href="<%= communities_path %>">Community</a>
-
+    </div>
+    <!-- Profile or Login -->
+    <div class="login-container">
       <% if user_signed_in? %>
-        <!-- Display profile picture and name when logged in -->
         <div class="profile">
           <a href="<%= edit_user_registration_path %>">
             <% if current_user.profile_picture.present? %>
               <img src="<%= url_for(current_user.profile_picture) %>" alt="Profile Picture" class="profile-pic" />
             <% else %>
-              <img src="images/moodeng.png" alt="Profile Picture" class="profile-pic" />
+              <img src="/images/moodeng.png" alt="Default Profile Picture" class="profile-pic" />
             <% end %>
-            <span><%= current_user.name || "Profile" %></span>
+            <span class="profile-name"><%= current_user.name || "Profile" %></span>
           </a>
           <!-- Logout Button -->
-          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "logout-btn", data: { turbo: false } %>
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'logout-btn' %>
         </div>
       <% else %>
-        <!-- Display Login button when not logged in -->
         <a href="<%= new_user_session_path %>" class="login-btn">Login</a>
       <% end %>
     </div>
@@ -50,5 +59,8 @@
 
   <!-- Page-specific content -->
   <%= yield %>
+
+
+  
 </body>
 </html>

@@ -1,96 +1,135 @@
-/* General body styling for the layout */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    background-color: #f3f4f6;
-    color: #333;
-}
-
-/* Navbar styling */
-.navbar {
+/* General Header Styling */
+.header {
+    position: relative;
     width: 100%;
+    height: 14vh; /* 10% of the viewport height */
+    background-color: black;
+    background-size: cover;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center; /* Center items vertically */
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
+    padding: 0 3vw; /* Padding in vw to make it responsive */
+    box-sizing: border-box;
 }
 
-/* Branding with Logo and Name */
-.navbar .brand {
-    font-size: 1.5em;
-    font-weight: bold;
+/* Logo Section */
+.header .logo-section {
     display: flex;
-    align-items: center; /* Center logo and text vertically */
-    margin-left: 50px;
+    align-items: center;
+    justify-content: center;
+    width: 10vw; /* 15% of viewport width */
+    height: 10vw;
+    left: -20vw;/* Make it take full height of header */
 }
 
-.navbar .logo {
-    width: 40px; /* Size of the logo */
-    height: 40px; /* Height of the logo */
-    border-radius: 50%; /* Makes the image circular */
-    margin-right: 10px; /* Space between logo and brand name */
-    vertical-align: middle; /* Ensures logo aligns with text vertically */
+.header .logo {
+    left:10vw;
+    width: 100%; /* Make the logo take full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain;
 }
 
-/* Menu items styling */
-.navbar a {
-    color: #fff;
+.header .brand-name {
+    position: absolute;
+    width:1vw;
+    left: 14vw; /* Adjust based on logo width */
+    top: 30%; /* Vertically center in header */
+    font-family: 'Bona Nova', serif;
+    font-weight: 700;
+    font-size: 1.5vw; /* Font size in vw */
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: #FFD4A8;
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 0.9em;
 }
 
-.navbar .menu {
-    margin-right: 20px;
-}
-
-/* Profile styling */
-.navbar .profile img {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-}
-
-.profile {
+/* Navigation Menu */
+.header .navbar {
     display: flex;
-    align-items: center; /* Vertically center image and text */
-    gap: 10px; /* Add space between image and name */
+    position: absolute;
+    width: 40%; /* 40% of viewport width */
+    height: 100%; /* Full height */
+    left: 50%; /* Center the navbar */
+    top: 30%;
+    transform: translateX(-50%); /* Center horizontally */
+    justify-content: space-evenly; /* Even spacing between links */
 }
 
-.profile-pic {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: inline-block; /* Ensure it stays inline */
-    vertical-align: middle;
-}
-
-.profile span {
-    display: inline-block;
-    font-size: 1rem; /* Adjust text size to match */
-    vertical-align: middle;
-}
-
-/* Login button styling */
-.login-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 16px;
+.header .navbar a {
+    font-family: 'Bona Nova', serif;
+    font-weight: 400;
+    font-size: 1.5vw; /* Font size in vw */
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.header .navbar a:hover {
+    color: #FFD4A8;
+}
+
+/* Login Button */
+.header .login-container {
+    position: absolute;
+    width: 10vw; /* 10% of viewport width */
+    height: 4.5vh; /* 4% of viewport height */
+    left: 85vw; /* Adjust position relative to the viewport */
+    top: 30%;
+    background: #DEA07A;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    margin-left: 15px; /* Space between links */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
-.login-btn:hover {
-    background-color: #0056b3;
+.header .login-container a {
+    font-family: 'Bona Nova', serif;
+    font-weight: 400;
+    font-size: 1.5vw; /* Font size in vw */
+    color: #FFFFFF;
+    text-decoration: none;
 }
+
+.header .login-container a:hover {
+    opacity: 0.9;
+}
+
+/* Profile Picture */
+.header .profile-pic {
+    position: absolute;
+    width: 5vw; /* Width in viewport width */
+    height: 5vw; /* Height in viewport width */
+    left: -16vw; /* Adjust position */
+    top: -1.5vw;  /* Adjust position */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Profile Name */
+.header .profile-name {
+    position: absolute;
+    left:-85%;
+    width: 1vw;
+    top: -1%;
+    font-family: 'Bona Nova', serif;
+    font-weight: 400;
+    font-size: 1.5vw; /* Font size in vw */
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+
+.header .logout-btn {
+    background-color: transparent;
+    border:none;
+    font-family: 'Bona Nova', serif;
+    font-weight: 400;
+    font-size: 1.5vw; /* Font size in vw */
+    color: #FFFFFF;
+    text-decoration: none;
+}
+

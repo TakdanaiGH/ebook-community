@@ -1,54 +1,46 @@
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
 
-<!-- Include CSS specific to this layout -->
-<%= stylesheet_link_tag 'sessions', media: 'all' %>
-
 <!-- Include global application CSS -->
 <%= stylesheet_link_tag 'application', media: 'all' %>
+<%= stylesheet_link_tag 'sessions', media: 'all' %>
 
 <%= javascript_importmap_tags %>
 
 <div class="login-page">
-  <div class="welcome-section">
-    <h1>Welcome Back!</h1>
-    <%= image_tag "login-cover.jpeg", class: "login-image", alt: "Welcome" %>
-    <p>Please log in to access your account.</p>
-  </div>
-  
-  <div class="form-container">
-    <h1>Log in</h1>
-    
-    <% if flash[:alert] %>
-      <p class="error"><%= flash[:alert] %></p>
-    <% elsif flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
+  <div class="welcome-section">Welcome to PlotTwist!</div>
+  <p class="join-description">
+    Join PlotTwist and unlock a world of stories! Access free eBooks, connect with like-minded readers, 
+    and dive into engaging book clubs. Discover your next favorite book and be part of a community that 
+    shares your passion for reading. Start your literary adventure today!
+  </p>
+  <div class="login-heading">Login to Your Account</div>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f| %>
-      <!-- Email Field -->
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
-      </div>
-      
-      <!-- Password Field -->
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "current-password", required: true %>
-      </div>
+  <% if flash[:alert] %>
+    <p class="flash-message error"><%= flash[:alert] %></p>
+  <% elsif flash[:notice] %>
+    <p class="flash-message notice"><%= flash[:notice] %></p>
+  <% end %>
 
-      <!-- Submit Button -->
-      <div class="actions">
-        <%= f.submit "Log in", class: "btn" %>
-      </div>
-    <% end %>
-
-    <!-- Forgot Password & Sign Up Links -->
-    <div class="links">
-      <a href="/users/password/new">Forgot your password?</a>
-      <br />
-      <a href="/users/sign_up">Don't have an account? Sign up</a>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f| %>
+    <div class="form-group">
+      <%= f.label :email, "Email", class: "form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, class: "form-input" %>
     </div>
+
+    <div class="form-group">
+      <%= f.label :password, "Password", class: "form-label" %>
+      <%= f.password_field :password, autocomplete: "current-password", required: true, class: "form-input" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Log in", class: "btn-primary" %>
+    </div>
+  <% end %>
+
+  <div class="links">
+    <!--<a href="/users/password/new" class="link">Forgot your password?</a>-->
+    <br />
+    <a href="/users/sign_up" class="link">Don't have an account? Sign up</a>
   </div>
 </div>

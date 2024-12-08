@@ -1,17 +1,128 @@
-.feedback-button {
-  padding: 10px 20px;
-  background-color: #007bff;
+/* Global Body Styling */
+body {
+  background-color: black;
+  font-family: 'Bona Nova', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+* {
+  font-family: 'Bona Nova', sans-serif;
   color: white;
-  border: none;
+}
+
+/* Magicbook Animation */
+.magicbook-animation {
+  position: absolute;
+  width: 30vw;  /* Scaled to 50% of viewport width */
+  height: 30vw; /* Scaled to 70% of viewport height */
+  left: 0;
+  top: 15vh;  /* Adjusted to scale with viewport */
+  background: url('https://cdn.edu.buncee.com/assets/abbde3e5bc174eb59c55d4b2f278ec48/animation-library-magicbookp-022120.gif?timestamp=1582320629');
+  background-size: cover;
+}
+
+/* Group 1 */
+.group-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 65vw; /* Adjusted width to 60% of viewport width */
+  height: auto;
+  margin: 0;
+  position: absolute;
+  top: 25vh;  /* Adjusted position based on viewport height */
+  left: 30vw; /* Adjusted position based on viewport width */
+}
+
+/* Story Heading */
+.story-heading {
+  font-family: 'Bona Nova', serif;
+  font-weight: 700;
+  font-size: 2vw; /* Font size relative to viewport width */
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+/* Subtitle */
+.subtitle {
+  font-family: 'Bona Nova', serif;
+  font-weight: 700;
+  font-size: 3vw; /* Scaled to viewport width */
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.02em;
+  background: linear-gradient(90deg, #EAA7DC 0%, #E4BC7F 64.6%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-top: 2vh;
+}
+
+/* PlotTwist Description */
+.description {
+  font-family: 'Bona Nova', serif;
+  font-weight: 400;
+  font-size: 1.5vw; /* Scaled font size */
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-top: 1vh;
+}
+
+/* Group 2 (Button container) */
+.group-2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin-top: 2vh;
+}
+
+/* Rectangle 25 - Button Container */
+.button-container {
+  width: 20vw;  /* Scaled width */
+  height: 6vh;  /* Scaled height */
+  background: #DEA07A;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
   cursor: pointer;
-  margin-top: 20px;
+  transition: transform 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.button-container:hover {
+  transform: scale(1.05);
+  background-color: #CC926D;
+}
+
+/* Button Text */
+.button-text {
+  font-family: 'Bona Nova', serif;
+  font-weight: 400;
+  font-size: 2vw;  /* Scaled font size */
+  color: #ffffff;
 }
 
 .feedback-button:hover {
-  background-color: #0056b3;
+  background-color: #CC926D;
 }
 
+.feedback-button .button-text {
+  font-family: 'Bona Nova', sans-serif;
+  font-size: 2vw;
+  color: #FFFFFF;
+}
+
+/* Feedback Modal */
 .feedback-modal {
   position: fixed;
   top: 0;
@@ -19,11 +130,14 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* Enable flexbox */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 9999;
 }
 
+/* Modal Background Overlay */
 .modal-background {
   position: absolute;
   top: 0;
@@ -31,51 +145,195 @@
   width: 100%;
   height: 100%;
   background: transparent;
+  z-index: -1;
 }
 
+/* Modal Content */
 .modal-content {
-  position: relative;
-  background: white;
-  padding: 20px;
-  width: 90%;
+  background-color: black;
+  border: 2px solid #DEA07A;
+  padding: 2vh 5vw; /* Scaled padding */
+  width: 80vw; /* Scaled width */
   max-width: 500px;
   border-radius: 8px;
   z-index: 10;
 }
 
 .modal-content h2 {
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
+  color: white;
 }
 
+/* Submit Button inside Modal */
+.modal-content button {
+  font-family: 'Bona Nova', sans-serif;
+  padding: 1vh 3vw;
+  border-radius: 5px;
+  background-color: #DEA07A;
+  color: white;
+  cursor: pointer;
+  
+}
+
+.modal-content button:hover {
+  background-color: #CC926D;
+}
+
+/* Radio Group Styling */
 .radio-group {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  color: white;
+  font-family: 'Bona Nova', sans-serif;
+  margin-bottom: 2vh;
+  display: flex; /* Horizontal layout */
+  flex-wrap: wrap; /* Allow wrapping if necessary */
+  gap: 2vw; /* Space between inputs */
 }
 
-.radio-group label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.radio-group .radio-label {
+  margin-right: 1vw;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 1vh;
+}
+
+.radio-group .radio-input {
+  margin-right: 1vw;
+  margin-bottom: 1vh;
+}
+
+/* Textarea and Input Styles */
+textarea, input[type="radio"] {
+  font-family: 'Bona Nova', sans-serif;
+  background-color: #333;
+  color: white;
+  border: 1px solid #DEA07A;
+  border-radius: 5px;
+  padding: 1vh 2vw;
 }
 
 textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  width: 80%;
+  height: 10vh;
   resize: none;
 }
 
-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
+
+/* Adjusting Form Structure */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
 }
 
-button:hover {
-  background-color: #0056b3;
+.feedback-form .question {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-form .comment label {
+  margin-bottom: 1vh;
+}
+
+.feedback-form .submit-button {
+  align-self: center;
+  width: 20vw;
+}
+
+
+/* Discover your tribe, share your passion, and let the books lead the way. */
+.tagline {
+  position: absolute;
+  width: 45vw; /* Scaled width */
+  height: auto; /* Allow height to adjust automatically */
+  left: -25vw; /* Center horizontally */
+  top: 80vh; /* Scaled vertical position */
+  
+  font-family: 'Bona Nova';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5vw; /* Scaled font size */
+  line-height: 1.2em; /* Scaled line height */
+  letter-spacing: 0.02em;
+
+  background: linear-gradient(90deg, #EAA7DC 0%, #E4BC7F 64.6%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Join PlotTwist paragraph */
+.join-description {
+  position: absolute;
+  width: 300vw; /* Scaled width */
+  height: auto; /* Allow height to adjust automatically */
+  left: -25vw; /* Center horizontally */
+  top: 95vh; /* Scaled vertical position */
+
+  font-family: 'Bona Nova';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.25vw; /* Scaled font size */
+  line-height: 1.5em; /* Scaled line height */
+  text-align: justify;
+
+  color: #FFFFFF;
+}
+
+
+.rounded-image {
+  position: absolute;
+  width: 30vw;  /* Scaled to 50% of viewport width */
+  height: 30vw; /* Scaled to 70% of viewport height */
+  right: 0vw;
+  top: 75vh;  /* Adjusted to scale with viewport */
+  background: url('https://libraries.ballarat.vic.gov.au/_next/image?url=https%3A%2F%2Fballaratlib.wpenginepowered.com%2Fwp-content%2Fuploads%2F2024%2F05%2FNew-library-website-internal-5050-masthead-1536-x-1293-px-3.png&w=3840&q=90');
+  background-size: cover;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  border-radius: 20%; /* Makes the image round */
+}
+
+/* What they say? */
+.what-they-say {
+  position: absolute;
+  width: 20vw; /* Scaled width */
+  height: auto; /* Allow height to adjust automatically */
+  left: -25vw; /* Center horizontally */
+  top: 130vh; /* Adjusted to move it below the Join Description */
+  font-family: 'Bona Nova';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2vw; /* Scaled font size */
+  line-height: 1.2em; /* Scaled line height */
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+}
+
+/* Feedback Button */
+.feedback-button {
+  font-family: 'Bona Nova', sans-serif;
+  position: absolute;
+  width: 20vw;  /* Scaled width */
+  height: 6vh;  /* Scaled height */
+  left: 0vw;  /* Center horizontally */
+  transform: translateX(-50%); /* True centering */
+  top: 130vh;  /* Adjusted to move below "What they say?" */
+  border: 1px solid #DEA07A;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5vw; /* Scaled font size */
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 0;
+}
+
+.feedback-button:hover {
+  background-color: #CC926D;
 }

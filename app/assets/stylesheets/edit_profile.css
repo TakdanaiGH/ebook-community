@@ -1,109 +1,184 @@
+body {
+  background-color: black;
+  margin: 0;
+  font-size: 0.8vw; /* Reduced base font size for a smaller scale */
+}
+
 /* General Styles for Profile Edit Page */
 .profile-form {
-    max-width: 1000px; /* Increased width for the form box */
-    width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
+  max-width: 80%;
+  width: 80%;
+  margin: 3vh auto;
+  padding: 1.5vw;
+}
+
+/* Profile Box */
+.profile-box {
+  background-color: transparent;
+  border: 1px solid #CC926D; /* Reduced border thickness */
+  padding: 1.5vw;
+  border-radius: 6px; /* Smaller border radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Info Container - Flexbox Layout */
+.profile-info-container {
+  color: white;
+  display: flex;
+  gap: 1vw; /* Reduced gap between left and right sections */
+  flex-wrap: wrap;
+}
+
+/* Left side: Profile Picture */
+.profile-left {
+  font-size: 1vw;
+  width: 25%;
+  text-align: center;
+}
+
+.profile-picture-container {
+  margin-bottom: 0.5vw; /* Reduced bottom margin */
+}
+
+.profile-picture {
+  width: 8vw; /* Smaller profile picture */
+  height: 8vw;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.file-input {
+  display: block;
+  margin-top: 0.5vw;
+  font-size: 0.9vw; /* Scaled down file input */
+}
+
+/* Right side: Information */
+.profile-right {
+  width: 70%;
+}
+
+/* Form Row - 2 items in each row */
+.form-row {
+  display: flex;
+  gap: 5vw; /* Reduced gap between form fields */
+  margin-bottom: 1vw; /* Reduced bottom margin */
+  flex-wrap: wrap;
+}
+
+/* Half-width Fields */
+.half-width {
+  width: 48%; /* Slightly smaller width for each field */
+}
+
+/* Form Group Styles */
+.form-group {
+  height:auto;
+  width: 40%; /* Adjusted width for form groups */
+  margin-bottom: 1.5vw; /* Reduced bottom margin for better spacing */
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.3vw; /* Reduced margin */
+  font-size: 1vw; /* Scaled down label font size */
+}
+
+/* Form Group Styles */
+.form-question {
+  width: 93%; /* Adjusted width for form groups */
+  margin-bottom: 1.5vw; /* Reduced bottom margin for better spacing */
+}
+
+.form-question label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.3vw; /* Reduced margin */
+  font-size: 1vw; /* Scaled down label font size */
+}
+
+/* Input Fields */
+.input-field,
+.text-area,
+.form-question .input-field {
+  width: 100%;
+  padding: 1vw;
+  height: 3vw; /* Uniform height for all input fields */
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 0.9vw;
+  margin-top: 0.3vw;
+  background-color: #FFD4A8;
+}
+
+/* Specific Styling for Form Question and Text Area */
+.text-area,
+.form-question .input-field {
+  height: 5vw; /* Increased height for larger text input fields */
+  resize: vertical;
+  font-size: 0.9vw;/* Allow text areas to be resizable */
+}
+
+/* Focus Styles */
+.input-field:focus,
+.text-area:focus,
+.form-question .input-field:focus {
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+  font-family: 'Bona Nova', sans-serif;
+  background-color: #DEA07A;
+  color: white;
+  padding: 1vw 1.5vw; /* Reduced padding */
+  border: none;
+  border-radius: 3px; /* Smaller border radius */
+  font-size: 1.2vw; /* Smaller font size */
+  cursor: pointer;
+  width: 97%; /* Button size adjusts to content */
+  margin-top: 1.5vw; /* Adjusted top margin */
+}
+
+.submit-btn:hover {
+  background-color: #CC926D;
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+  .profile-form {
+    padding: 3vw;
   }
-  
-  .profile-box {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Profile Info Container - Flexbox Layout */
-  .profile-info-container {
-    display: flex;
-    gap: 30px; /* Increased space between the left and right sections */
-  }
-  
-  /* Left side: Profile Picture */
-  .profile-left {
-    width: 30%; /* Keep the profile picture section smaller */
+
+  .profile-left,
+  .profile-right {
+    width: 100%;
     text-align: center;
   }
-  
-  .profile-picture-container {
-    margin-bottom: 10px;
-  }
-  
+
   .profile-picture {
-    width: 150px; /* Make the profile picture larger */
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 20vw; /* Scaled down profile picture */
+    height: 20vw;
   }
-  
-  .file-input {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  /* Right side: Information */
-  .profile-right {
-    width: 70%; /* Keep the information section larger */
-  }
-  
-  /* Form Row - 2 items in each row */
+
   .form-row {
-    display: flex;
-    gap: 30px; /* Increased gap between form fields in the same row */
-    margin-bottom: 20px; /* Ensure there is space between the rows */
+    gap: 1.5vw;
   }
-  
+
   .half-width {
-    width: 48%; /* Keeps the fields at 48% of the width, with space between them */
+    width: 100%;
   }
-  
-  /* Form Group Styles */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
+
   .input-field,
   .text-area {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    margin-top: 8px;
+    font-size: 3vw;
+    padding: 2vw;
   }
-  
-  .text-area {
-    height: 120px;
-    resize: vertical;
-  }
-  
-  .input-field:focus,
-  .text-area:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    outline: none;
-  }
-  
-  /* Submit Button */
+
   .submit-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 20px;
+    font-size: 3vw;
+    padding: 2vw 3vw;
   }
-  
-  .submit-btn:hover {
-    background-color: #0056b3;
-  }
-  
+}

@@ -5,97 +5,144 @@
     align-items: center;
     flex-direction: column;
     height: 85vh;
-    background-color: #f4f4f4;
-    padding: 1rem;
-  }
-  
-  .welcome-section {
+    background-color: black;
+    padding: 2vw;
+}
+
+.welcome-section {
     text-align: center;
-    max-width: 400px;
+    top: 20vh;
+    margin: 0 auto 2vh; /* Added bottom margin for gap between sections */
+    font-family: 'Bona Nova', serif;
+    font-size: 1.7vw;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    background: linear-gradient(90deg, #EAA7DC 0%, #E4BC7F 64.6%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    max-width: 90%; /* Adjust width for responsiveness */
+}
+
+.login-heading {
+    text-align: center;
+    margin: 0 auto 2vh; /* Added bottom margin for gap between sections */
+    font-family: 'Bona Nova', serif;
+    font-size: 1.7vw;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    background: linear-gradient(90deg, #EAA7DC 0%, #E4BC7F 64.6%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    max-width: 90%; /* Adjust width for responsiveness */
+}
+
+.join-description {
+    color: white;
+    text-align: center;
+    margin: 0 auto 3vh; /* Added bottom margin for gap between sections */
+    font-family: 'Bona Nova', serif;
+    font-size: 1.2vw; /* Responsive font size */
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    max-width: 50%; /* Adjust width for responsiveness */
+}
+
+
+/* Media Query for Smaller Screens */
+@media (max-width: 600px) {
+  .welcome-section,
+  .login-heading,
+  .join-description {
+    max-width: 100%; /* Utilize full width on small screens */
+    padding: 0 4vw; /* Add horizontal padding for spacing */
   }
-  
-  .login-image {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-  }
-  
-  .form-container {
+}
+
+.form-container {
     background: #fff;
-    padding: 3rem;
+    padding: 5vw;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
-  }
-  
-  .form-group {
-    margin-bottom: 1.25rem; /* Adjusted for better spacing */
-  }
-  
-  .form-group label {
+    max-width: 80vw;
+}
+
+.form-group {
+    align-items: center;
+    margin-bottom: 2vw; /* Adjusted for better spacing */
+    text-align: center; /* Center the label and input */
+}
+
+.form-group label {
+    color: white;
     display: block;
-    margin-bottom: 0.4rem; /* Reduced margin for tighter alignment */
+    margin-bottom: 1vw; /* Reduced margin for tighter alignment */
     font-weight: bold;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
+}
+
+.form-group input {
+    width: 300px; /* Adjust width to fit container */
+    padding: 1.5vw;
+    background-color: #FFD4A8;
     border-radius: 4px;
-    font-size: 1rem; /* Consistent font size */
-    margin-bottom: 0.5rem; /* Added margin for better spacing */
-  }
-  
-  .form-group input:focus {
+    font-size: 1vw; /* Responsive font size */
+    margin-bottom: 1vw; /* Added margin for better spacing */
+}
+
+.form-group input:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #DEA07A;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
-  .form-group .checkbox-container {
+}
+
+.form-group .checkbox-container {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* Adjust spacing between checkbox and label */
-  }
-  
-  .actions {
-    margin-top: 1.5rem; /* Increased for better visual separation */
-  }
-  
-  .btn {
+    gap: 1vw; /* Adjust spacing between checkbox and label */
+}
+
+.actions {
+  background-color: #DEA07A;
+  margin-top: 2vw; /* Increased for better visual separation */
+}
+
+.btn-primary {
     width: 100%;
-    padding: 0.75rem;
+    padding: 1.5vw;
     border: none;
     border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 1rem;
+    font-size: 4vw;
     cursor: pointer;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .links {
+    background-color: #DEA07A; /* Set the background color */
+}
+
+.btn-primary:hover {
+    background-color: #DEA07A; /* Prevent color change on hover */
+}
+
+.links {
     text-align: center;
-    margin-top: 1rem;
-  }
-  
-  .links a {
-    color: #007bff;
+    margin-top: 2vw;
+}
+
+.links a {
+    color: #DEA07A;
     text-decoration: none;
-  }
-  
-  .links a:hover {
+}
+
+.links a:hover {
     text-decoration: underline;
-  }
-  
-  .error {
+}
+
+.error {
     color: red;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-  }
-  
+    font-size: 2.5vw;
+    margin-bottom: 2vw;
+}

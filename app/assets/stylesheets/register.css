@@ -1,12 +1,22 @@
 
   .form {
+    color: white;
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
+    background: black;
+    border: 1px solid #DEA07A;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-title h1 {
+  background: linear-gradient(90deg, #EAA7DC 0%, #E4BC7F 64.6%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-size: 2.5em;
   }
   
   .field {
@@ -18,7 +28,7 @@
     margin-bottom: 5px;
     font-weight: bold;
     font-size: 14px;
-    color: #333;
+    color: white;
   }
   
   .field input[type="text"],
@@ -39,12 +49,12 @@
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
   
-
   .actions input[type="submit"] {
+    font-family: 'Bona Nova', serif;
     display: block;
     width: 100%;
     padding: 10px;
-    background: #007bff;
+    background: #DEA07A;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -54,16 +64,15 @@
   }
   
   .actions input[type="submit"]:hover {
-    background: #0056b3;
+    background:#CC926D;
   }
-  
 
   .error_messages {
-    color: #ff0000;
+    color: white;
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ffcccc;
-    background: #ffe6e6;
+    background: white;
     border-radius: 4px;
   }
   

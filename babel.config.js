@@ -1,9 +1,9 @@
 module.exports = function(api) {
-  const validEnv = ['development', 'test', 'production'];
-  const currentEnv = api.env();
-  const isDevelopmentEnv = api.env('development');
-  const isProductionEnv = api.env('production');
-  const isTestEnv = api.env('test');
+  var validEnv = ['development', 'test', 'production']
+  var currentEnv = api.env()
+  var isDevelopmentEnv = api.env('development')
+  var isProductionEnv = api.env('production')
+  var isTestEnv = api.env('test')
 
   if (!validEnv.includes(currentEnv)) {
     throw new Error(
@@ -12,23 +12,20 @@ module.exports = function(api) {
         '"test", and "production". Instead, received: ' +
         JSON.stringify(currentEnv) +
         '.'
-    );
+    )
   }
 
   return {
     presets: [
-      // Test environment preset
+      '@babel/preset-react', // Add this preset to handle JSX
       isTestEnv && [
         '@babel/preset-env',
         {
           targets: {
             node: 'current'
-          },
-          modules: 'commonjs'
-        },
-        '@babel/preset-react'
+          }
+        }
       ],
-      // Production or Development preset
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
         {
@@ -38,24 +35,13 @@ module.exports = function(api) {
           modules: false,
           exclude: ['transform-typeof-symbol']
         }
-      ],
-      [
-        '@babel/preset-react',
-        {
-          development: isDevelopmentEnv || isTestEnv,
-          useBuiltIns: true
-        }
       ]
     ].filter(Boolean),
-
     plugins: [
-      // Common plugins
       'babel-plugin-macros',
       '@babel/plugin-syntax-dynamic-import',
       isTestEnv && 'babel-plugin-dynamic-import-node',
       '@babel/plugin-transform-destructuring',
-      
-      // Private properties and methods plugins
       [
         '@babel/plugin-proposal-class-properties',
         {
@@ -80,32 +66,18 @@ module.exports = function(api) {
           loose: true
         }
       ],
-
-      // Runtime helpers for async/await
       [
         '@babel/plugin-transform-runtime',
         {
-          helpers: false,
-          regenerator: true,
-          corejs: false
+          helpers: false
         }
       ],
-      
-      // Regenerator plugin for async functions
       [
         '@babel/plugin-transform-regenerator',
         {
           async: false
         }
-      ],
-
-      // Remove PropTypes in production
-      isProductionEnv && [
-        'babel-plugin-transform-react-remove-prop-types',
-        {
-          removeImport: true
-        }
       ]
     ].filter(Boolean)
-  };
-};
+  }
+}

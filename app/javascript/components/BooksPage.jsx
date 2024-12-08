@@ -2,31 +2,28 @@ import React, { useState, useEffect } from 'react';
 import './BookPage.css'; // Import the CSS file
 
 const EbookPage = () => {
-  const [books, setBooks] = useState([]);  // Books to display
-  const [query, setQuery] = useState('public domain');  // Default query
+  const [books, setBooks] = useState([]);
+  const [query, setQuery] = useState('public domain');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [offset, setOffset] = useState(0); // Track the offset for pagination
-  const [yearBegin, setYearBegin] = useState(2000);  // Default start year
-  const [yearEnd, setYearEnd] = useState(2024);    // Default end year
-  
-  // Fetch books whenever query, year range, or offset changes
+  const [offset, setOffset] = useState(0);
+  const [yearBegin, setYearBegin] = useState(2000);
+  const [yearEnd, setYearEnd] = useState(2024);
+
   useEffect(() => {
     fetchBooks();
   }, [query, yearBegin, yearEnd, offset]);
 
-  // Fetch books from the server
   const fetchBooks = async () => {
     setLoading(true);
     setError('');
 
     try {
-      // Send query, year range, and offset to the backend
       const response = await fetch(`/ebooks/search?query=${query}&year_range=${yearBegin}-${yearEnd}&offset=${offset}`);
       const data = await response.json();
 
       if (data.books) {
-        setBooks((prevBooks) => [...prevBooks, ...data.books]);  // Append new books to the existing list
+        setBooks((prevBooks) => [...prevBooks, ...data.books]);
       } else {
         setError('No books found or error loading books.');
       }
@@ -37,31 +34,28 @@ const EbookPage = () => {
   };
 
   const handleSearch = (event) => {
-    setQuery(event.target.value);  // Update query when user types in the search bar
-    setOffset(0);  // Reset offset when a new search is performed
-    setBooks([]);  // Clear previous books on new search
+    setQuery(event.target.value);
+    setOffset(0);
+    setBooks([]);
   };
 
   const handleLoadMore = () => {
-    setOffset((prevOffset) => prevOffset + 24);  // Increment offset for the next batch
+    setOffset((prevOffset) => prevOffset + 24);
   };
 
-  // Handle change in start year
   const handleYearBeginChange = (event) => {
     setYearBegin(parseInt(event.target.value, 10));
   };
 
-  // Handle change in end year
   const handleYearEndChange = (event) => {
     setYearEnd(parseInt(event.target.value, 10));
   };
 
   return (
-    <div>
-      <div className="block-container">
-        <div className="content">
-          <h3>Ebooks</h3>
-        </div>
+    <div className="ebook-page-container">
+      {/* Header */}
+      <div className="header-ebooks">
+        <h1 className="header-title">Dive Into Free eBooks</h1>
       </div>
 
       {/* Search bar */}
@@ -76,47 +70,40 @@ const EbookPage = () => {
       </div>
 
       {/* Year Range Filter */}
-      <div className="side-bar">
-        <div>
-          <b>{books.length} Results</b>
-        </div>
-
-        {/* Year Range Filter Inputs */}
-        <div className="filter-section">
-          <label htmlFor="yearRange">
-            Year Range: {yearBegin} - {yearEnd}
-          </label>
-          <div>
-            <input 
-              type="number" 
-              min="1900" 
-              max="2024" 
-              value={yearBegin} 
-              onChange={handleYearBeginChange} 
-              className="year-input"
-              placeholder="Start Year"
-            />
-            <span> - </span>
-            <input 
-              type="number" 
-              min="1900" 
-              max="2024" 
-              value={yearEnd} 
-              onChange={handleYearEndChange} 
-              className="year-input"
-              placeholder="End Year"
-            />
-          </div>
+      <div className="filter-container">
+        <label className="filter-label">
+          Year Range: {yearBegin} - {yearEnd}
+        </label>
+        <div className="year-range-inputs">
+          <input 
+            type="number" 
+            min="1900" 
+            max="2024" 
+            value={yearBegin} 
+            onChange={handleYearBeginChange} 
+            className="year-input"
+            placeholder="Start Year"
+          />
+          <span> - </span>
+          <input 
+            type="number" 
+            min="1900" 
+            max="2024" 
+            value={yearEnd} 
+            onChange={handleYearEndChange} 
+            className="year-input"
+            placeholder="End Year"
+          />
         </div>
       </div>
 
       {/* Loading indicator */}
-      {loading && <p>Loading...</p>}
+      {loading && <p className="loading-text">Loading...</p>}
 
       {/* Error message */}
       {error && <p>{error}</p>}
 
-      {/* Book grid */}
+      {/* Book Grid */}
       <div className="book-grid">
         {books.map((book) => (
           <div className="book-item" key={book.key}>

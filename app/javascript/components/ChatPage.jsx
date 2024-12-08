@@ -199,7 +199,7 @@ const ChatPage = ({ groupId, groupName, groupImageUrl, groupColor, currentUserId
             </div>
           ))
         ) : (
-          <p>No messages yet. Be the first to send a message!</p>
+          <p className = "NoM">No messages yet. Be the first to send a message!</p>
         )}
       </div>
 
@@ -208,7 +208,7 @@ const ChatPage = ({ groupId, groupName, groupImageUrl, groupColor, currentUserId
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type your message"
-          rows="3"
+          rows="1"
         />
         <button type="submit">Send</button>
       </form>
