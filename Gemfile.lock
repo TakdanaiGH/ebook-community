@@ -106,7 +106,7 @@ GEM
     crass (1.0.6)
     csv (3.3.0)
     date (3.4.0)
-    debug (1.9.2)
+    debug (1.10.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
     devise (4.9.4)
@@ -145,8 +145,8 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
-    io-console (0.7.2)
-    irb (1.14.1)
+    io-console (0.8.0)
+    irb (1.14.3)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jbuilder (2.13.0)
@@ -199,7 +199,8 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.9)
-    psych (5.2.0)
+    psych (5.2.2)
+      date
       stringio
     public_suffix (6.0.1)
     puma (6.4.3)
@@ -247,7 +248,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
-    rdoc (6.7.0)
+    rdoc (6.10.0)
       psych (>= 4.0.0)
     react-rails (3.2.1)
       babel-transpiler (>= 0.7.0)
@@ -256,7 +257,7 @@ GEM
       railties (>= 3.2)
       tilt
     regexp_parser (2.9.2)
-    reline (0.5.11)
+    reline (0.6.0)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
